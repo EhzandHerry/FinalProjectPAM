@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.tasks.await
 
-interface PemesanananRepository {
+interface RepositoriPemesanan {
     fun getAll(): Flow<List<Pemesananan>>
     suspend fun save(Pemesananan: Pemesananan): String
     suspend fun update(Pemesananan: Pemesananan)
@@ -19,7 +19,7 @@ interface PemesanananRepository {
     fun getPemesanananById(PemesanananId: String): Flow<Pemesananan>
 }
 
-class PemesanananRepositoryImpl(private val firestore: FirebaseFirestore) : PemesanananRepository {
+class PemesanananRepositoryImpl(private val firestore: FirebaseFirestore) : RepositoriPemesanan {
     override fun getAll(): Flow<List<Pemesananan>> = flow {
         val snapshot = firestore.collection("Pemesananan")
             .orderBy("nama", Query.Direction.ASCENDING)
