@@ -7,7 +7,7 @@ interface AppContainer {
 class KontainerPemesanan : AppContainer{
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    override val kontakRepository: KontakRepository by lazy {
-        KontakRepositoryImpl(firestore)
+    override val repositoriPemesanan: RepositoriPemesanan by lazy {
+        PemesanananRepositoryImpl(firestore)
     }
 }
