@@ -1,4 +1,22 @@
 <resources>
     <string name="app_name">FinalProjectPAM</string>
     <string name="Nama">Nama</string>
+    <string name="alamat">Alamat</string>
+    <string name="notlp">Nomor Telepon</string>
+    <string name="cancel">Batal</string>
+    <string name="gitar">Gitar</string>
+    <string name="piano">Piano</string>
+    <string name="biola">Biola</string>
+    <string name="cello">Cello</string>
+    <string name="ukulele">Ukulele</string>
+    <string name="detail">Detail Pemesanan</string>
+
+    <string name="add_button">Tambah Pesanan</string>
+    <string name="back_button">Kembali</string>
+    <string name="next">lanjut</string>
+    <string name="submit_button">Selanjutnya</string>
+    <string name="quantity">Jumlah</string>
+    <string name="order_summary">Ringkasan Order</string>
+    <string name="total_price">Total: %s</string>
+
 </resources>
