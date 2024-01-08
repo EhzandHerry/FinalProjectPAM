@@ -10,7 +10,7 @@ data class AddEvent(
     val nohp: String="",
     val alamat: String="",
     val harga: String="",
-    val jumlah: String,
+    val jumlah: String="",
     val alat: String=""
 )
 
