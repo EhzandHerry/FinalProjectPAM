@@ -1,54 +1,84 @@
 package com.example.finalprojectpam.ui
 
-import com.example.finalprojectpam.model.Pemesanan
+import com.example.finalprojectpam.model.AlatMusik
+import com.example.finalprojectpam.model.Pelanggan
 
-data class AddUIState(
-    val addEvent: AddEvent= AddEvent(),
+data class AddUIStatePelanggan(
+    val addEvent: AddEventPelanggan= AddEventPelanggan(),
+)
+data class AddUIStateAlatMusik(
+    val addEvent: AddEventAlatMusik = AddEventAlatMusik(),
 )
 
-data class AddEvent(
+
+data class AddEventPelanggan(
     val id: String="",
     val nama: String="",
     val nohp: String="",
-    val alamat: String="",
+    val alamat: String=""
+)
+data class AddEventAlatMusik(
+
+    val id: String="",
+    val namaalat: String="",
     val harga: String="",
-    val jumlah: String="",
-    val alat: String=""
+    val jenis: String=""
 )
 
-fun AddEvent.toPemesanan()= Pemesanan(
+
+fun AddEventPelanggan.toPelanggan()= Pelanggan(
     id = id,
     nama = nama,
     nohp = nohp,
-    alamat = alamat,
-    harga = harga,
-    jumlah= jumlah,
-    alat= alat
+    alamat = alamat
+)
+fun AddEventAlatMusik.toAlatMusik()= AlatMusik(
+    id = id,
+    namaalat=namaalat,
+    harga=harga,
+    jenis=jenis
 )
 
-data class  DetailUIState(
-    val addEvent: AddEvent = AddEvent()
+
+data class  DetailUIStatePelanggan(
+    val addEventPelanggan: AddEventPelanggan= AddEventPelanggan(),
+)
+data class  DetailUIStateAlatMusik(
+    val addEventAlatMusik: AddEventAlatMusik= AddEventAlatMusik(),
 )
 
-fun Pemesanan.toDetailPemesanan():AddEvent=
-    AddEvent(
+fun Pelanggan.toDetailPelanggan():AddEventPelanggan=
+    AddEventPelanggan(
         id = id,
         nama = nama,
         nohp = nohp,
-        alamat = alamat,
-        harga = harga,
-        jumlah= jumlah,
-        alat= alat
+        alamat = alamat)
+fun AlatMusik.toDetailAlatMusik():AddEventAlatMusik=
+    AddEventAlatMusik(
+        id = id,
+        namaalat=namaalat,
+        harga=harga,
+        jenis=jenis
     )
 
-fun Pemesanan.toUIStatePemesanan(): AddUIState = AddUIState(
-    addEvent = this
-        .toDetailPemesanan()
+
+fun Pelanggan.toUIStatePelanggan(): AddUIStatePelanggan = AddUIStatePelanggan(
+    addEvent = this.toDetailPelanggan()
+)
+fun AlatMusik.toUIStateAlatMusik(): AddUIStateAlatMusik = AddUIStateAlatMusik(
+    addEvent = this.toDetailAlatMusik()
 )
 
-data class HomeUIState(
-    val listPemesanan: List<Pemesanan> = listOf(),
+data class HomeUIStatePelanggan(
+    val listPelanggan: List<Pelanggan> = listOf(),
     val dataLength: Int = 0
 )
+
+data class HomeUIStateAlatMusik(
+    val listAlatMusik: List<AlatMusik> = listOf(),
+    val dataLength: Int = 0
+)
+
+
 
 

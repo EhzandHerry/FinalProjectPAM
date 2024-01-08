@@ -2,9 +2,9 @@ package com.example.finalprojectpam.ui.alatmusik.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.finalprojectpam.data.RepositoriPemesanan
-import com.example.finalprojectpam.model.Pemesanan
-import com.example.finalprojectpam.ui.HomeUIState
+import com.example.finalprojectpam.data.RepositoriAlatmusik
+import com.example.finalprojectpam.model.AlatMusik
+import com.example.finalprojectpam.ui.HomeUIStateAlatMusik
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -13,23 +13,23 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
 
-sealed class PemesananUIState {
-    data class Success(val pemesanan: Flow<List<Pemesanan>>) : PemesananUIState()
-    object Error : PemesananUIState()
-    object Loading : PemesananUIState()
+sealed class AlatMusikUIState {
+    data class Success(val alatMusik: Flow<List<AlatMusik>>) : AlatMusikUIState()
+    object Error : AlatMusikUIState()
+    object Loading : AlatMusikUIState()
 }
-class HomeViewModel(private val repositoriPemesanan: RepositoriPemesanan) : ViewModel() {
+class HomeViewModelAlatMusik(private val repositoriAlatmusik: RepositoriAlatmusik) : ViewModel() {
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
-    val homeUIState: StateFlow<HomeUIState> = repositoriPemesanan.getAll()
+    val homeUIStateAlatMusik: StateFlow<HomeUIStateAlatMusik> = repositoriAlatmusik.getAll()
         .filterNotNull()
         .map {
-            HomeUIState (listPemesanan = it.toList(), it.size ) }
+            HomeUIStateAlatMusik (listAlatMusik = it.toList(), it.size ) }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
-            initialValue = HomeUIState()
+            initialValue = HomeUIStateAlatMusik()
 
         )
 }
