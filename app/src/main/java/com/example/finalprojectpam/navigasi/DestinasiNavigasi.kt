@@ -9,5 +9,5 @@ interface DestinasiNavigasi {
     /**
       String resources id yang berisi judul yang akan ditampilkan di layar halaman
      */
-    val titleRes: Int
+    val titleRes: String
 }
