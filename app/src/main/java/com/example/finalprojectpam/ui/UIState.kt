@@ -1,7 +1,6 @@
 package com.example.finalprojectpam.ui
 
 import com.example.finalprojectpam.model.Pemesanan
-import com.example.finalprojectpam.model.Pemesananan
 
 data class AddUIState(
     val addEvent: AddEvent= AddEvent(),
@@ -41,5 +40,15 @@ fun Pemesanan.toDetailPemesanan():AddEvent=
         jumlah= jumlah,
         alat= alat
     )
+
+fun Pemesanan.toUIStatePemesanan(): AddUIState = AddUIState(
+    addEvent = this
+        .toDetailPemesanan()
+)
+
+data class HomeUIState(
+    val listPemesanan: List<Pemesanan> = listOf(),
+    val dataLength: Int = 0
+)
 
 
