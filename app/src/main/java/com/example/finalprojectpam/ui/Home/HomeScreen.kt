@@ -23,7 +23,6 @@ object destinasiHome : DestinasiNavigasi {
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview
 @Composable
 
 fun HomeScreen(
