@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.finalprojectpam.ui.Home.DataPemesanan
 import com.example.finalprojectpam.ui.Home.HomeScreen
 import com.example.finalprojectpam.ui.theme.FinalProjectPAMTheme
 
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
             FinalProjectPAMTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    GreetingPreview()
+                    DataPemesanan()
                 }
             }
         }
@@ -40,6 +41,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     FinalProjectPAMTheme {
-        HomeScreen()
+        Greeting(name = "")
     }
 }

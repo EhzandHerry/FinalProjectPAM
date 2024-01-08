@@ -10,6 +10,6 @@ class KontainerPemesanan: AppContainer{
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     override val repositoriPemesanan: RepositoriPemesanan by lazy {
-        PemesanananRepositoryImpl(firestore)
+        PemesananRepositoryImpl(firestore)
     }
 }
