@@ -1,5 +1,8 @@
 package com.example.finalprojectpam.ui
 
+import com.example.finalprojectpam.model.Pemesanan
+import com.example.finalprojectpam.model.Pemesananan
+
 data class AddUIState(
     val addEvent: AddEvent= AddEvent(),
 )
@@ -12,6 +15,17 @@ data class AddEvent(
     val harga: String="",
     val jumlah: String="",
     val alat: String=""
+)
+
+fun AddEvent.toPemesanan()= Pemesanan(
+    id = id,
+    nama = nama,
+    nohp = nohp,
+    alamat = alamat,
+    harga = harga,
+    jumlah= jumlah,
+    alat= alat
+
 )
 
 
