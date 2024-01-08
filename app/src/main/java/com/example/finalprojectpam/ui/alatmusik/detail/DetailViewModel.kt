@@ -1,10 +1,10 @@
-package com.example.finalprojectpam.ui.edit
+package com.example.finalprojectpam.ui.alatmusik.detail
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.example.finalprojectpam.data.RepositoriPemesanan
 
-class EditViewModel(
+class DetailViewModel(
     savedStateHandle: SavedStateHandle,
     private val repositoriPemesanan: RepositoriPemesanan
 ) : ViewModel() {}

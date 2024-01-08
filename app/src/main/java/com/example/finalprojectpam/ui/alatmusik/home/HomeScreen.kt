@@ -1,4 +1,4 @@
-package com.example.finalprojectpam.ui.Home
+package com.example.finalprojectpam.ui.alatmusik.home
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Phone
@@ -29,7 +28,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.finalprojectpam.model.Pemesanan
@@ -93,7 +91,7 @@ fun BodyHome(
     ) {
         if (itemPemesanan.isEmpty()) {
             Text(
-                text = "Tidak ada data Kontak",
+                text = "Tidak ada data Pesanan",
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge
             )
@@ -118,7 +116,7 @@ fun ListPemesanan(
     ) {
         this.items(itemPemesanan, key = { it.id }) { pemesanan ->
             DataPemesanan(
-                // pemesanan = pemesanan,
+                pemesanan = pemesanan,
                 modifier = Modifier
                     .fillMaxWidth()
                     .clickable { onItemClick(pemesanan) }
@@ -130,7 +128,7 @@ fun ListPemesanan(
 
 @Composable
 fun DataPemesanan(
-    // pemesanan: Pemesanan,
+    pemesanan: Pemesanan,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -145,7 +143,7 @@ fun DataPemesanan(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = "pemesanan.nama",
+                    text = pemesanan.nama,
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
@@ -154,12 +152,12 @@ fun DataPemesanan(
                     contentDescription = null,
                 )
                 Text(
-                    text = "pemesanan.nohp",
+                    text = pemesanan.nohp,
                     style = MaterialTheme.typography.titleMedium
                 )
             }
             Text(
-                text = "pemesanan.alamat",
+                text = pemesanan.alamat,
                 style = MaterialTheme.typography.titleMedium
             )
         }
