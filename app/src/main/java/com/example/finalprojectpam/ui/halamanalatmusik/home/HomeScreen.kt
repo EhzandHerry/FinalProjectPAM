@@ -45,40 +45,40 @@ object DestinasiHomeAlatMusik : DestinasiNavigasi {
 @Composable
 
 fun HomeScreenAlatMusik(
-    navigateToItemEntry: () -> Unit,
-    modifier: Modifier = Modifier,
-    onDetailClick: (String) -> Unit = {},
+//    navigateToItemEntry: () -> Unit,
+//    modifier: Modifier = Modifier,
+//    onDetailClick: (String) -> Unit = {},
     viewModel: HomeViewModelAlatMusik = viewModel(factory = PenyediaViewModel.Factory)
 )
     {
         val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-    Scaffold(
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-        topBar = {
-            AlatMusikTopAppBar(title = "Alat Musik", canNavigateBack = false, scrollBehavior = scrollBehavior)
-        },
-        floatingActionButton = {
-            FloatingActionButton(
-                onClick = navigateToItemEntry,
-                shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.padding(16.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Add,
-                    contentDescription = ""
-                )
-            }
-        }
-    ) { innerPadding ->
-        val uiStateAlatMusik by viewModel.homeUIStateAlatMusik.collectAsState()
-        BodyHome(
-            itemAlatMusik = uiStateAlatMusik.listAlatMusik,
-            modifier = Modifier
-                .padding(innerPadding)
-                .fillMaxSize(),
-            onOrderClick = onDetailClick
-        )
-    }
+//    Scaffold(
+//        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+//        topBar = {
+//            AlatMusikTopAppBar(title = "Alat Musik", canNavigateBack = false, scrollBehavior = scrollBehavior)
+//        },
+//        floatingActionButton = {
+//            FloatingActionButton(
+//                onClick = navigateToItemEntry,
+//                shape = MaterialTheme.shapes.medium,
+//                modifier = Modifier.padding(16.dp)
+//            ) {
+//                Icon(
+//                    imageVector = Icons.Default.Add,
+//                    contentDescription = ""
+//                )
+//            }
+//        }
+//    ) { innerPadding ->
+//        val uiStateAlatMusik by viewModel.homeUIStateAlatMusik.collectAsState()
+//        BodyHome(
+//            itemAlatMusik = uiStateAlatMusik.listAlatMusik,
+//            modifier = Modifier
+//                .padding(innerPadding)
+//                .fillMaxSize(),
+//            onOrderClick = onDetailClick
+//        )
+//    }
 }
 @Composable
 fun BodyHome(
