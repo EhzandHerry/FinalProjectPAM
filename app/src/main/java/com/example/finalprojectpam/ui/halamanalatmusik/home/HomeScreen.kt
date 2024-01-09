@@ -1,4 +1,4 @@
-package com.example.finalprojectpam.ui.alatmusik.home
+package com.example.finalprojectpam.ui.halamanalatmusik.home
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -35,7 +35,6 @@ import com.example.finalprojectpam.model.AlatMusik
 import com.example.finalprojectpam.navigasi.DestinasiNavigasi
 import com.example.finalprojectpam.ui.AlatMusikTopAppBar
 import com.example.finalprojectpam.ui.PenyediaViewModel
-import com.example.finalprojectpam.ui.HomeUIStateAlatMusik
 
 object DestinasiHomeAlatMusik : DestinasiNavigasi {
     override val route = "Home AlatMusik"

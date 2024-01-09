@@ -1,4 +1,4 @@
-package com.example.finalprojectpam.ui.alatmusik.home
+package com.example.finalprojectpam.ui.halamanalatmusik.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
