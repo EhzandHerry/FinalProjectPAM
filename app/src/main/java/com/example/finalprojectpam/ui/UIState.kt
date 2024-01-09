@@ -3,11 +3,21 @@ package com.example.finalprojectpam.ui
 import com.example.finalprojectpam.model.AlatMusik
 import com.example.finalprojectpam.model.Pelanggan
 
+
+data class HomeUIStatePelanggan(
+    val listPelanggan: List<Pelanggan> = listOf(),
+    val dataLength: Int = 0
+)
+data class HomeUIStateAlatMusik(
+    val listAlatMusik: List<AlatMusik> = listOf(),
+    val dataLength: Int = 0
+)
+
 data class AddUIStatePelanggan(
-    val addEvent: AddEventPelanggan= AddEventPelanggan(),
+    val addEventPelanggan: AddEventPelanggan= AddEventPelanggan(),
 )
 data class AddUIStateAlatMusik(
-    val addEvent: AddEventAlatMusik = AddEventAlatMusik(),
+    val addEventAlatMusik: AddEventAlatMusik = AddEventAlatMusik(),
 )
 
 
@@ -18,11 +28,10 @@ data class AddEventPelanggan(
     val alamat: String=""
 )
 data class AddEventAlatMusik(
-
-    val id: String="",
-    val namaalat: String="",
-    val harga: String="",
-    val jenis: String=""
+    val id: String = "",
+    val namaalat: String = "",
+    val harga: String = "",
+    val jenis: String = ""
 )
 
 
@@ -63,20 +72,10 @@ fun AlatMusik.toDetailAlatMusik():AddEventAlatMusik=
 
 
 fun Pelanggan.toUIStatePelanggan(): AddUIStatePelanggan = AddUIStatePelanggan(
-    addEvent = this.toDetailPelanggan()
+    addEventPelanggan = this.toDetailPelanggan()
 )
 fun AlatMusik.toUIStateAlatMusik(): AddUIStateAlatMusik = AddUIStateAlatMusik(
-    addEvent = this.toDetailAlatMusik()
-)
-
-data class HomeUIStatePelanggan(
-    val listPelanggan: List<Pelanggan> = listOf(),
-    val dataLength: Int = 0
-)
-
-data class HomeUIStateAlatMusik(
-    val listAlatMusik: List<AlatMusik> = listOf(),
-    val dataLength: Int = 0
+    addEventAlatMusik = this.toDetailAlatMusik()
 )
 
 
