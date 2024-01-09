@@ -22,7 +22,7 @@ object DestinasiHomePemesanan : DestinasiNavigasi {
     override val route = "Home Pemesanan"
     override val titleRes = "Pemesanan"
 }
-
+/**
 @Composable
 fun DataPemesanan(
     pemesanan: Pemesanan,
@@ -59,4 +59,4 @@ fun DataPemesanan(
             )
         }
     }
-}
+}*/
