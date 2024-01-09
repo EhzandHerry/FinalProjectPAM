@@ -2,7 +2,6 @@ package com.example.finalprojectpam.ui.halamanutama
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -28,7 +27,7 @@ object DestinasiMenu : DestinasiNavigasi {
 
 @Composable
 fun HalamanUtama(
-    onAlatMusikClick: () -> Unit,
+    onAlatMusikClick: () -> Unit
 ){
     Column(
     modifier = Modifier
@@ -46,7 +45,7 @@ fun HalamanUtama(
         modifier = Modifier.padding(bottom = 150.dp, top = 100.dp)
     )
         Button(
-            onClick = onAlatMusikClick,
+            onClick = {},
             modifier = Modifier
                 .height(72.dp)
                 .fillMaxWidth()
@@ -55,11 +54,10 @@ fun HalamanUtama(
         }
 
 
-
     Spacer(modifier = Modifier.height(20.dp))
 
     Button(
-        onClick = {},
+        onClick = onAlatMusikClick,
         modifier = Modifier
             .fillMaxWidth()
             .height(72.dp)

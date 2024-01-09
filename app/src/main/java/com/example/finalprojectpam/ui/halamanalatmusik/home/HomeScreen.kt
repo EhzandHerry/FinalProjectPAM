@@ -49,8 +49,7 @@ fun HomeScreenAlatMusik(
     modifier: Modifier = Modifier,
     onDetailClickAlatMusik: (String) -> Unit = {},
     viewModel: HomeViewModelAlatMusik = viewModel(factory = PenyediaViewModel.Factory)
-)
-    {
+) {
         val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
