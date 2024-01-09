@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.finalprojectpam.ui.PemesananApp
+import com.example.finalprojectpam.ui.halamanutama.CoverScreen
 import com.example.finalprojectpam.ui.theme.FinalProjectPAMTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +21,7 @@ class MainActivity : ComponentActivity() {
             FinalProjectPAMTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    GreetingPreview()
+                    CoverScreen()
                 }
             }
         }

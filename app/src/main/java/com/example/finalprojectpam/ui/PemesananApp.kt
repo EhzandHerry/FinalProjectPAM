@@ -32,7 +32,6 @@ fun PemesananApp(
                 .fillMaxSize()
                 .padding(it)
         ) {
-
         }
     }
 }

@@ -22,16 +22,15 @@ import androidx.compose.ui.unit.sp
 import com.example.finalprojectpam.R
 import com.example.finalprojectpam.navigasi.DestinasiNavigasi
 
-
-
 object DestinasiHome : DestinasiNavigasi {
-    override val route = "Home"
+    override val route = "Cover"
     override val titleRes = "Cover"
 }
 
 @Composable
 fun CoverScreen(
-    onNextButtonClicked: () -> Unit
+//    navigateToItemEntry: () -> Unit,
+//    onNextButtonClicked: () -> Unit
 ) {
     val image = painterResource(id = R.drawable.cover)
     Column(
@@ -63,7 +62,7 @@ fun CoverScreen(
                 .height(150.dp)
         )
         Button(
-            onClick = onNextButtonClicked,
+            onClick = {},
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp)
