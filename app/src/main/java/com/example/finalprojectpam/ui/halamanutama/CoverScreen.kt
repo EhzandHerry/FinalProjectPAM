@@ -38,7 +38,7 @@ object DestinasiHome : DestinasiNavigasi {
 fun CoverScreen(
     onNextButtonClicked: () -> Unit
 ) {
-    val image = painterResource(id = R.drawable.cover)
+    val image = painterResource(id = R.drawable.cover11)
     Column(
         modifier = Modifier,
         verticalArrangement = Arrangement.SpaceBetween
