@@ -29,8 +29,7 @@ object DestinasiHome : DestinasiNavigasi {
 
 @Composable
 fun CoverScreen(
-//    navigateToItemEntry: () -> Unit,
-//    onNextButtonClicked: () -> Unit
+    onNextButtonClicked: () -> Unit
 ) {
     val image = painterResource(id = R.drawable.cover)
     Column(
@@ -62,7 +61,7 @@ fun CoverScreen(
                 .height(150.dp)
         )
         Button(
-            onClick = {},
+            onClick = onNextButtonClicked,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp)

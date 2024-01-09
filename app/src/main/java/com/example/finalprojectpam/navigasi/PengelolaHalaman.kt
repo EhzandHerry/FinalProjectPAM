@@ -8,6 +8,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.finalprojectpam.ui.halamanutama.CoverScreen
 import com.example.finalprojectpam.ui.halamanutama.DestinasiHome
+import com.example.finalprojectpam.ui.halamanutama.DestinasiMenu
+import com.example.finalprojectpam.ui.halamanutama.HalamanUtama
 
 @Composable
 fun PengelolaHalaman(navController: NavHostController = rememberNavController()) {
@@ -18,6 +20,15 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
     ){
         composable(DestinasiHome.route
         ) {
+            CoverScreen(
+                onNextButtonClicked = {
+                    navController.navigate(DestinasiMenu.route)
+                }
+            )
+        }
+
+        composable(DestinasiMenu.route) {
+            HalamanUtama()
         }
     }
 }
