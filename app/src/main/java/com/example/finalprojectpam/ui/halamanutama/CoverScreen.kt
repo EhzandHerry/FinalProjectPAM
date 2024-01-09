@@ -1,14 +1,18 @@
 package com.example.finalprojectpam.ui.halamanutama
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -19,17 +23,15 @@ import com.example.finalprojectpam.R
 import com.example.finalprojectpam.navigasi.DestinasiNavigasi
 
 
-/**
+
 object DestinasiHome : DestinasiNavigasi {
-    override val route = "Cover"
-    override val titleRes = "Pilih"
-}*/
+    override val route = "Home"
+    override val titleRes = "Cover"
+}
 
-
-@Preview
 @Composable
 fun CoverScreen(
-  //  onNextButtonClicked: () -> Unit
+    onNextButtonClicked: () -> Unit
 ) {
     val image = painterResource(id = R.drawable.cover)
     Column(
@@ -45,12 +47,28 @@ fun CoverScreen(
         ){
             Text(
                 text = stringResource(id = R.string.Jikustik),
-                color = Color.DarkGray,
-                fontSize = 35.sp,
+                color = Color.White,
+                fontSize = 30.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
             )
+        }
+        Image(
+            painter = image,
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(150.dp)
+        )
+        Button(
+            onClick = onNextButtonClicked,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 16.dp)
+        ) {
+            Text("Lanjut")
         }
     }
 }
