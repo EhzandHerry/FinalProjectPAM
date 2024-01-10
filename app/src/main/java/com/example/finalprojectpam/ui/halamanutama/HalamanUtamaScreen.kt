@@ -26,7 +26,7 @@ object DestinasiMenu : DestinasiNavigasi {
 }
 
 @Composable
-fun HalamanUtama(
+fun HalamanUtamaScreen(
     onAlatMusikClicked: () -> Unit,
 //    onPemesananClicked:() -> Unit,
 ){
