@@ -32,4 +32,8 @@ class DetailAlatMusikViewModel(
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
                 initialValue = DetailUIStateAlatMusik()
             )
+    suspend fun deleteAlatMusik() {
+        repositoriAlatmusik.delete(alatMusikId)
+
+    }
 }
