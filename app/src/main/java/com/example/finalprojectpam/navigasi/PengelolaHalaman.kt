@@ -72,7 +72,10 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
 backStackEntry ->
 val alatMusikId =backStackEntry.arguments?.getString(DestinasiDetailAlatMusik.alatMusikId)
             alatMusikId?.let {
-                DetailScreenAlatMusik()
+                DetailScreenAlatMusik(
+                    navigateBack ={navController.popBackStack()},
+                    navigateToEditItem = {}
+                )
             }
         }
     }
