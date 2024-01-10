@@ -1,5 +1,6 @@
 package com.example.finalprojectpam.ui.halamanalatmusik.home
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -16,6 +18,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.Button
@@ -38,10 +41,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.finalprojectpam.R
 import com.example.finalprojectpam.model.AlatMusik
 import com.example.finalprojectpam.navigasi.DestinasiNavigasi
 import com.example.finalprojectpam.ui.AddUIStateAlatMusik
@@ -53,7 +63,7 @@ import com.example.finalprojectpam.ui.halamanalatmusik.detail.DestinasiDetailAla
 
 object DestinasiHomeAlatMusik : DestinasiNavigasi {
     override val route = "Home AlatMusik"
-    override val titleRes = "HomeAlatMusik"
+    override val titleRes = "Data Alat Musik"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -71,11 +81,6 @@ fun HomeScreenAlatMusik(
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-//            AlatMusikTopAppBar(
-//                title = "Alat musik",
-//                canNavigateBack = false,
-//                scrollBehavior = scrollBehavior
-//            )
             AlatMusikTopAppBar(
                 title = DestinasiHomeAlatMusik.titleRes,
                 canNavigateBack = true,
@@ -162,6 +167,7 @@ fun DataAlatMusik(
         modifier = modifier,
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
+        val image = painterResource(id = R.drawable.musiclogo)
         Column(
             modifier = Modifier.padding(12.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -172,16 +178,25 @@ fun DataAlatMusik(
                 Text(
                     text = alatMusik.namaalat,
                     style = MaterialTheme.typography.titleLarge,
+                    color = Color.DarkGray,
+                    fontFamily = FontFamily.Serif,
+                    fontSize = 45.sp,
+                    fontWeight = FontWeight.Bold
                 )
                 Spacer(Modifier.weight(1f))
-                Icon(
-                    imageVector = Icons.Default.Place,
+                Image(
+                    painter = image,
                     contentDescription = null,
-
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
                 )
                 Text(
                     text = alatMusik.jenis,
-                    style = MaterialTheme.typography.titleMedium
+                    style = MaterialTheme.typography.titleMedium,
+                    color = Color.DarkGray,
+                    fontFamily = FontFamily.Monospace,
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold
                 )
             }
             Text(

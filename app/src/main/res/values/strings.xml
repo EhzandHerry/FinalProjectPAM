@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">FinalProjectPAM</string>
-    <string name="menu">Menu Utama</string>
+    <string name="menu">MENU UTAMA</string>
     <string name="Nama">Nama</string>
     <string name="alamat">Alamat</string>
     <string name="notlp">Nomor Telepon</string>
