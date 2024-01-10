@@ -1,11 +1,13 @@
 package com.example.finalprojectpam.ui
 
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.finalprojectpam.PemesananAplication
 import com.example.finalprojectpam.ui.halamanalatmusik.add.AddAlatMusikViewModel
+import com.example.finalprojectpam.ui.halamanalatmusik.detail.DetailAlatMusikViewModel
 import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeViewModelAlatMusik
 
 fun CreationExtras.aplikasiPemesanan(): PemesananAplication =
@@ -24,6 +26,12 @@ object PenyediaViewModel {
 
         initializer {
             AddAlatMusikViewModel(aplikasiPemesanan().container.repositoriAlatmusik)
+        }
+
+        initializer {
+            DetailAlatMusikViewModel(
+                createSavedStateHandle(),
+                aplikasiPemesanan().container.repositoriAlatmusik)
         }
 
         /**initializer {
