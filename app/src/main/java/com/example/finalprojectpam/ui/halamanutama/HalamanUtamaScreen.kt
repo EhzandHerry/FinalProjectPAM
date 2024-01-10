@@ -48,7 +48,7 @@ fun HalamanUtamaScreen(
         fontSize = 50.sp,
         fontWeight = FontWeight.Bold,
         fontFamily = FontFamily.SansSerif,
-        modifier = Modifier.padding(bottom = 100.dp, top = 150.dp)
+        modifier = Modifier.padding(bottom = 80.dp, top = 150.dp)
     )
         Button(
             onClick = onAlatMusikClicked,
