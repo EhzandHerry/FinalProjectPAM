@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.finalprojectpam.model.AlatMusik
 import com.example.finalprojectpam.navigasi.DestinasiNavigasi
+import com.example.finalprojectpam.ui.AlatMusikTopAppBar
 import com.example.finalprojectpam.ui.DetailUIStateAlatMusik
 import com.example.finalprojectpam.ui.PemesananTopAppBar
 import com.example.finalprojectpam.ui.PenyediaViewModel
@@ -59,7 +60,7 @@ fun DetailScreenAlatMusik(
     val coroutineScope = rememberCoroutineScope()
     Scaffold(
         topBar = {
-            PemesananTopAppBar(
+            AlatMusikTopAppBar(
                 title = DestinasiDetailAlatMusik.titleRes,
                 canNavigateBack = true,
                 navigateUp = navigateBack

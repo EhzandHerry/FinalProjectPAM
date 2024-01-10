@@ -47,7 +47,9 @@ import com.example.finalprojectpam.navigasi.DestinasiNavigasi
 import com.example.finalprojectpam.ui.AddUIStateAlatMusik
 import com.example.finalprojectpam.ui.AlatMusikTopAppBar
 import com.example.finalprojectpam.ui.HomeUIStateAlatMusik
+import com.example.finalprojectpam.ui.PemesananTopAppBar
 import com.example.finalprojectpam.ui.PenyediaViewModel
+import com.example.finalprojectpam.ui.halamanalatmusik.detail.DestinasiDetailAlatMusik
 
 object DestinasiHomeAlatMusik : DestinasiNavigasi {
     override val route = "Home AlatMusik"
@@ -59,6 +61,7 @@ object DestinasiHomeAlatMusik : DestinasiNavigasi {
 
 fun HomeScreenAlatMusik(
     navigateToItemEntryAlatMusik: () -> Unit,
+    navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     onDetailClickAlatMusik: (String) -> Unit = {},
     viewModel: HomeViewModelAlatMusik = viewModel(factory = PenyediaViewModel.Factory)
@@ -68,10 +71,15 @@ fun HomeScreenAlatMusik(
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
+//            AlatMusikTopAppBar(
+//                title = "Alat musik",
+//                canNavigateBack = false,
+//                scrollBehavior = scrollBehavior
+//            )
             AlatMusikTopAppBar(
-                title = "Alat musik",
-                canNavigateBack = false,
-                scrollBehavior = scrollBehavior
+                title = DestinasiHomeAlatMusik.titleRes,
+                canNavigateBack = true,
+                navigateUp = navigateBack
             )
         },
         floatingActionButton = {

@@ -19,7 +19,7 @@ import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeScreenAlatMusik
 import com.example.finalprojectpam.ui.halamanutama.CoverScreen
 import com.example.finalprojectpam.ui.halamanutama.DestinasiHome
 import com.example.finalprojectpam.ui.halamanutama.DestinasiMenu
-import com.example.finalprojectpam.ui.halamanutama.HalamanUtama
+import com.example.finalprojectpam.ui.halamanutama.HalamanUtamaScreen
 
 @Composable
 fun PengelolaHalaman(navController: NavHostController = rememberNavController()) {
@@ -28,34 +28,34 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         startDestination = DestinasiHome.route,
         modifier = Modifier
     ){
+
         composable(DestinasiHome.route
         ) {
             CoverScreen(
-                onNextButtonClicked = {
-                    navController.navigate(DestinasiMenu.route)
+                onNextButtonClicked = { navController.navigate(DestinasiMenu.route)
                 }
             )
         }
+
 
         composable(DestinasiMenu.route
         ) {
-            HalamanUtama(
-                onAlatMusikClicked = {
-                    navController.navigate(DestinasiHomeAlatMusik.route)
-                }
+            HalamanUtamaScreen(
+                onAlatMusikClicked = { navController.navigate(DestinasiHomeAlatMusik.route)
+                },
+               // navigateBack = {navController.popBackStack()}
             )
         }
-
         composable(DestinasiHomeAlatMusik.route
      ){
             HomeScreenAlatMusik(
-                navigateToItemEntryAlatMusik = {
-                    navController.navigate(DestinasiAddAlatMusik.route)
+                navigateToItemEntryAlatMusik = { navController.navigate(DestinasiAddAlatMusik.route)
                 },
                 onDetailClickAlatMusik = {itemId ->
                     navController.navigate("${DestinasiDetailAlatMusik.route}/$itemId")
                     println("itemId: $itemId")
-                }
+                },
+                navigateBack = {navController.popBackStack()}
             )
         }
         composable(DestinasiAddAlatMusik.route){
