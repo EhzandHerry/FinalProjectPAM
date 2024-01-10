@@ -13,6 +13,7 @@ import com.example.finalprojectpam.ui.halamanalatmusik.add.DestinasiAddAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.detail.DestinasiDetailAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.detail.DetailScreenAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.edit.EditDestinationAlatmusik
+import com.example.finalprojectpam.ui.halamanalatmusik.edit.EditScreenAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.DestinasiHomeAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeScreenAlatMusik
 import com.example.finalprojectpam.ui.halamanutama.CoverScreen
@@ -86,6 +87,13 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             arguments = listOf(navArgument(EditDestinationAlatmusik.alatMusikId){
                 type = NavType.StringType
             })
-        ){}
+        ){backStackEntry ->
+            val alatMusikId = backStackEntry.arguments?.getString(EditDestinationAlatmusik.alatMusikId)
+            alatMusikId?.let {
+                EditScreenAlatMusik(
+                    navigateBack = { navController.popBackStack() },
+                    onNavigateUp = { navController.navigateUp() })
+            }
+        }
     }
 }

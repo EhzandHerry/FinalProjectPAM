@@ -56,7 +56,7 @@ fun AddAlatMusikScreen(
         }
     ) { innerPadding ->
 
-        EntryBody(
+        EntryBodyAlatMusik(
             addUIStateAlatMusik = addAlatMusikViewModel.addUIStateAlatMusik,
             onAlatMusikValueChange = addAlatMusikViewModel::updateAddUIStateAlatMusik,
             onSaveClick = {
@@ -74,7 +74,7 @@ fun AddAlatMusikScreen(
 }
 
 @Composable
-fun EntryBody(
+fun EntryBodyAlatMusik(
     addUIStateAlatMusik: AddUIStateAlatMusik,
     onAlatMusikValueChange: (AddEventAlatMusik) -> Unit,
     onSaveClick: () -> Unit,
