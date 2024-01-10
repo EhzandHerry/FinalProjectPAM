@@ -6,9 +6,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-//import com.example.finalprojectpam.ui.halamanalatmusik.add.DestinasiAddAlatMusik
+import com.example.finalprojectpam.ui.halamanalatmusik.add.DestinasiAddAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.DestinasiHomeAlatMusik
-//import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeScreenAlatMusik
+import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeScreenAlatMusik
 import com.example.finalprojectpam.ui.halamanutama.CoverScreen
 import com.example.finalprojectpam.ui.halamanutama.DestinasiHome
 import com.example.finalprojectpam.ui.halamanutama.DestinasiMenu
@@ -33,19 +33,19 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         composable(DestinasiMenu.route
         ) {
             HalamanUtama(
-                onAlatMusikClick = {
+                onAlatMusikClicked = {
                     navController.navigate(DestinasiHomeAlatMusik.route)
                 }
+                onA
             )
-
         }
 
-       // composable(DestinasiHomeAlatMusik.route
-    // ){
-         //   HomeScreenAlatMusik(
-           //     navigateToItemEntryAlatMusik = {navController.navigate(DestinasiAddAlatMusik.route)},
-             //   onDetailClickAlatMusik = {}
-            //)
-        //}
+           composable(DestinasiHomeAlatMusik.route
+     ){
+            HomeScreenAlatMusik(
+                navigateToItemEntryAlatMusik = {navController.navigate(DestinasiAddAlatMusik.route)},
+                onDetailClickAlatMusik = {}
+            )
+        }
     }
 }

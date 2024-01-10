@@ -75,8 +75,8 @@ fun HomeScreenAlatMusik(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
-
-            onOrderClick = onDetailClickAlatMusik
+//
+//            onOrderClick = onDetailClickAlatMusik
         )
     }
 }

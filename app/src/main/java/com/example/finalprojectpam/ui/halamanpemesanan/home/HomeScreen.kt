@@ -42,7 +42,6 @@ object DestinasiHomePemesanan : DestinasiNavigasi {
     override val route = "Home Pemesanan"
     override val titleRes = "Pemesanan"
 }
-/
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 
@@ -60,7 +59,7 @@ fun HomeScreenPemesanan(
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = navigateToItemEntryAlatMusik,
+                onClick = navigateToItemEntryPemesanan,
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -78,7 +77,7 @@ fun HomeScreenPemesanan(
                 .padding(innerPadding)
                 .fillMaxSize(),
 
-            onOrderClick = onDetailClickAlatMusik
+            onOrderClick = onDetailClickPemesanan
         )
     }
 }

@@ -27,8 +27,8 @@ object DestinasiMenu : DestinasiNavigasi {
 
 @Composable
 fun HalamanUtama(
-    onAlatMusikClick: () -> Unit,
-    onPemesananClick:() -> Unit
+    onAlatMusikClicked: () -> Unit,
+    onPemesananClicked:() -> Unit,
 ){
     Column(
     modifier = Modifier
@@ -46,7 +46,7 @@ fun HalamanUtama(
         modifier = Modifier.padding(bottom = 150.dp, top = 100.dp)
     )
         Button(
-            onClick = onAlatMusikClick,
+            onClick = onAlatMusikClicked,
             modifier = Modifier
                 .height(72.dp)
                 .fillMaxWidth()
@@ -58,7 +58,7 @@ fun HalamanUtama(
     Spacer(modifier = Modifier.height(20.dp))
 
     Button(
-        onClick = onPemesananClick,
+        onClick = onPemesananClicked,
         modifier = Modifier
             .fillMaxWidth()
             .height(72.dp)
