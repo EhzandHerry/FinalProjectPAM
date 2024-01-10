@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.finalprojectpam.ui.halamanalatmusik.add.AddAlatMusikScreen
 import com.example.finalprojectpam.ui.halamanalatmusik.add.DestinasiAddAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.DestinasiHomeAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeScreenAlatMusik
@@ -39,9 +40,16 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             )
         }
 
-           composable(DestinasiHomeAlatMusik.route
+        composable(DestinasiHomeAlatMusik.route
      ){
-            HomeScreenAlatMusik()
+            HomeScreenAlatMusik(
+                navigateToItemEntryAlatMusik = {
+                    navController.navigate(DestinasiAddAlatMusik.route)
+                }
+            )
+        }
+        composable(DestinasiAddAlatMusik.route){
+            AddAlatMusikScreen()
         }
     }
 }

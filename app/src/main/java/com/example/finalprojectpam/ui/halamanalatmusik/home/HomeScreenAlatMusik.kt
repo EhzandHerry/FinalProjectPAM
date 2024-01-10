@@ -38,16 +38,16 @@ import com.example.finalprojectpam.ui.PenyediaViewModel
 
 object DestinasiHomeAlatMusik : DestinasiNavigasi {
     override val route = "Home AlatMusik"
-    override val titleRes = "AlatMusik"
+    override val titleRes = "HomeAlatMusik"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 
 fun HomeScreenAlatMusik(
-//    navigateToItemEntryAlatMusik: () -> Unit,
+    navigateToItemEntryAlatMusik: () -> Unit,
     modifier: Modifier = Modifier,
-//    onDetailClickAlatMusik: (String) -> Unit = {},
+    onDetailClickAlatMusik: (String) -> Unit = {},
     viewModel: HomeViewModelAlatMusik = viewModel(factory = PenyediaViewModel.Factory)
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -63,7 +63,7 @@ fun HomeScreenAlatMusik(
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = {  },
+                onClick = navigateToItemEntryAlatMusik,
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(18.dp)
             ) {
@@ -80,7 +80,7 @@ fun HomeScreenAlatMusik(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
-            onOrderClick = {  }
+            onOrderClick = onDetailClickAlatMusik
         )
     }
 }

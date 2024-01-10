@@ -4,5 +4,7 @@ import com.example.finalprojectpam.navigasi.DestinasiNavigasi
 
 object DestinasiAddAlatMusik : DestinasiNavigasi {
     override val route = "Add AlatMusik"
-    override val titleRes = "AlatMusik"
+    override val titleRes = "AddAlatMusik"
 }
+
+fun AddAlatMusikScreen(){}
