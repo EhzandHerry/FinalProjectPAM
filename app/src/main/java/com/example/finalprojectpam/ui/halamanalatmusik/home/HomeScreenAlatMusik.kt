@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
@@ -91,7 +92,10 @@ fun HomeScreenAlatMusik(
             FloatingActionButton(
                 onClick = navigateToItemEntryAlatMusik,
                 shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.padding(18.dp)
+                modifier = Modifier
+                    .padding(16.dp)
+                    //.align(Alignment.BottomCenter)
+
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
@@ -165,7 +169,8 @@ fun DataAlatMusik(
 ) {
     Card(
         modifier = modifier,
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        shape = RoundedCornerShape(10.dp)
     ) {
         val image = painterResource(id = R.drawable.musiclogo)
         Column(
@@ -195,20 +200,18 @@ fun DataAlatMusik(
                     style = MaterialTheme.typography.titleMedium,
                     color = Color.DarkGray,
                     fontFamily = FontFamily.Monospace,
-                    fontSize = 15.sp,
+                    fontSize = 16.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
             Text(
-                text = alatMusik.harga,
+                text = "Rp."+alatMusik.harga,
                 style = MaterialTheme.typography.titleMedium
             )
             Spacer(Modifier.weight(1f))
             Icon(
                 imageVector = Icons.Default.Delete,
                 contentDescription =null )
-
-
         }
     }
 }
