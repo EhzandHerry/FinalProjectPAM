@@ -1,4 +1,4 @@
-package com.example.finalprojectpam.ui.halamanpemesanan.home
+package com.example.finalprojectpam.ui.halamanalatmusik.home
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -32,34 +32,33 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.finalprojectpam.model.AlatMusik
-import com.example.finalprojectpam.model.Pemesanan
 import com.example.finalprojectpam.navigasi.DestinasiNavigasi
-import com.example.finalprojectpam.ui.PemesananTopAppBar
+import com.example.finalprojectpam.ui.AlatMusikTopAppBar
 import com.example.finalprojectpam.ui.PenyediaViewModel
 
-
-object DestinasiHomePemesanan : DestinasiNavigasi {
-    override val route = "Home Pemesanan"
-    override val titleRes = "Pemesanan"
+object DestinasiHomeAlatMusik : DestinasiNavigasi {
+    override val route = "Home AlatMusik"
+    override val titleRes = "AlatMusik"
 }
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 
-fun HomeScreenPemesanan(
-    navigateToItemEntryPemesanan: () -> Unit,
+fun HomeScreenAlatMusik(
+    navigateToItemEntryAlatMusik: () -> Unit,
     modifier: Modifier = Modifier,
-    onDetailClickPemesanan: (String) -> Unit = {},
-    viewModel: HomeViewModelPemesanan = viewModel(factory = PenyediaViewModel.Factory)
+    onDetailClickAlatMusik: (String) -> Unit = {},
+    viewModel: HomeViewModelAlatMusik = viewModel(factory = PenyediaViewModel.Factory)
 ) {
-    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+        val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            PemesananTopAppBar(title = "Pemesanan", canNavigateBack = false, scrollBehavior = scrollBehavior)
+            AlatMusikTopAppBar(title = "Alat Musik", canNavigateBack = false, scrollBehavior = scrollBehavior)
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = navigateToItemEntryPemesanan,
+                onClick = navigateToItemEntryAlatMusik,
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -70,20 +69,19 @@ fun HomeScreenPemesanan(
             }
         }
     ) { innerPadding ->
-        val uiStatePemesanan by viewModel.homeUIStatePemesanan.collectAsState()
+        val uiStateAlatMusik by viewModel.homeUIStateAlatMusik.collectAsState()
         BodyHome(
-            itemPemesanan = uiStatePemesanan.listPemesanan,
+            itemAlatMusik = uiStateAlatMusik.listAlatMusik,
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
-
-            onOrderClick = onDetailClickPemesanan
+            onOrderClick = onDetailClickAlatMusik
         )
     }
 }
 @Composable
 fun BodyHome(
-    itemPemesanan: List<Pemesanan>,
+    itemAlatMusik: List<AlatMusik>,
     modifier: Modifier = Modifier,
     onOrderClick: (String) -> Unit = {}
 ) {
@@ -91,15 +89,15 @@ fun BodyHome(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ) {
-        if (itemPemesanan.isEmpty()) {
+        if (itemAlatMusik.isEmpty()) {
             Text(
                 text = "Tidak ada data Alat Musik",
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge
             )
         } else {
-            ListPemesanan(
-                itemPemesanan = itemPemesanan,
+            ListAlatMusik(
+                itemAlatMusik = itemAlatMusik,
                 modifier = Modifier
                     .padding(horizontal = 8.dp),
                 onItemClick = { onOrderClick(it.id) }
@@ -108,20 +106,20 @@ fun BodyHome(
     }
 }
 @Composable
-fun ListPemesanan(
-    itemAlatMusik: List<Pemesanan>,
+fun ListAlatMusik(
+    itemAlatMusik: List<AlatMusik>,
     modifier: Modifier = Modifier,
     onItemClick: (AlatMusik) -> Unit
 ) {
     LazyColumn(
         modifier = modifier
     ) {
-        this.items(itemAlatMusik, key = { it.id }) { pemesanan ->
-            DataPemesanan(
-                pemesanan = pemesanan,
+        this.items(itemAlatMusik, key = { it.id }) { alatMusik ->
+            DataAlatMusik(
+                alatMusik = alatMusik,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clickable { onItemClick(pemesanan) }
+                    .clickable { onItemClick(alatMusik) }
             )
             Spacer(modifier = Modifier.padding(8.dp))
         }
@@ -129,8 +127,8 @@ fun ListPemesanan(
 }
 
 @Composable
-fun DataPemesanan(
-    pemesanan: Pemesanan,
+fun DataAlatMusik(
+    alatMusik: AlatMusik,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -145,7 +143,7 @@ fun DataPemesanan(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = pemesanan.nama,
+                    text = alatMusik.namaalat,
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
@@ -154,12 +152,12 @@ fun DataPemesanan(
                     contentDescription = null,
                 )
                 Text(
-                    text = pemesanan.nohp,
+                    text = alatMusik.jenis,
                     style = MaterialTheme.typography.titleMedium
                 )
             }
             Text(
-                text = pemesanan.alamat,
+                text = alatMusik.harga,
                 style = MaterialTheme.typography.titleMedium
             )
         }
