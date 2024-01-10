@@ -41,10 +41,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
 
            composable(DestinasiHomeAlatMusik.route
      ){
-            HomeScreenAlatMusik(
-                navigateToItemEntryAlatMusik = {},
-                onDetailClickAlatMusik = {}
-            )
+            HomeScreenAlatMusik()
         }
     }
 }

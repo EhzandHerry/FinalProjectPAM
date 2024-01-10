@@ -5,6 +5,7 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.finalprojectpam.PemesananAplication
+import com.example.finalprojectpam.ui.halamanalatmusik.add.AddAlatMusikViewModel
 import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeViewModelAlatMusik
 
 fun CreationExtras.aplikasiPemesanan(): PemesananAplication =
@@ -19,6 +20,10 @@ object PenyediaViewModel {
 
         initializer {
             HomeViewModelAlatMusik(aplikasiPemesanan().container.repositoriAlatmusik)
+        }
+
+        initializer {
+            AddAlatMusikViewModel(aplikasiPemesanan().container.repositoriAlatmusik)
         }
 
         /**initializer {

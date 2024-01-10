@@ -45,29 +45,34 @@ object DestinasiHomeAlatMusik : DestinasiNavigasi {
 @Composable
 
 fun HomeScreenAlatMusik(
-    navigateToItemEntryAlatMusik: () -> Unit,
+//    navigateToItemEntryAlatMusik: () -> Unit,
     modifier: Modifier = Modifier,
-    onDetailClickAlatMusik: (String) -> Unit = {},
+//    onDetailClickAlatMusik: (String) -> Unit = {},
     viewModel: HomeViewModelAlatMusik = viewModel(factory = PenyediaViewModel.Factory)
 ) {
-        val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            AlatMusikTopAppBar(title = "Alat Musik", canNavigateBack = false, scrollBehavior = scrollBehavior)
+            AlatMusikTopAppBar(
+                title = "Alat musik",
+                canNavigateBack = false,
+                scrollBehavior = scrollBehavior
+            )
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = navigateToItemEntryAlatMusik,
+                onClick = {  },
                 shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(18.dp)
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
                     contentDescription = ""
                 )
             }
-        }
+        },
     ) { innerPadding ->
         val uiStateAlatMusik by viewModel.homeUIStateAlatMusik.collectAsState()
         BodyHome(
@@ -75,7 +80,7 @@ fun HomeScreenAlatMusik(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
-            onOrderClick = onDetailClickAlatMusik
+            onOrderClick = {  }
         )
     }
 }
