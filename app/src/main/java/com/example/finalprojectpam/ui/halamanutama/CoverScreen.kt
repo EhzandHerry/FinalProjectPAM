@@ -48,7 +48,7 @@ fun CoverScreen(
             ),
             border = BorderStroke(1.dp, Color.Black), modifier = Modifier
                 .fillMaxWidth(0.9f)
-                .padding(vertical = 55.dp)
+                .padding(vertical = 80.dp)
                 .align(Alignment.CenterHorizontally)
         ) {
             Column(
@@ -60,7 +60,7 @@ fun CoverScreen(
                     text = "Toko Alat Musik",
                     color = Color.DarkGray,
                     fontFamily = FontFamily.SansSerif,
-                    fontSize = 35.sp,
+                    fontSize = 30.sp,
                     fontWeight = FontWeight.Bold,
                     modifier =  Modifier
                         .align(Alignment.CenterHorizontally)
@@ -69,7 +69,7 @@ fun CoverScreen(
                     text = "Jikustik",
                     color = Color.DarkGray,
                     fontFamily = FontFamily.Serif,
-                    fontSize = 60.sp,
+                    fontSize = 55.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Image(
@@ -84,14 +84,15 @@ fun CoverScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(dimensionResource(R.dimen.padding_medium))
-                .weight(3f, false),
+                .weight(1f, false),
             horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
             verticalAlignment = Alignment.Bottom
         ){
             Button(modifier = Modifier.weight(1f),
-                onClick = onNextButtonClicked
+                onClick = onNextButtonClicked,
             ) {
-                Text(stringResource(R.string.next))
+                Text(stringResource(R.string.next),
+                color =Color.Yellow)
             }
         }
     }

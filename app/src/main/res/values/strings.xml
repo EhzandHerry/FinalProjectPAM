@@ -15,7 +15,7 @@
 
     <string name="add_button">Tambah Pesanan</string>
     <string name="back_button">Kembali</string>
-    <string name="next">lanjut</string>
+    <string name="next">Lanjut</string>
     <string name="submit_button">Selanjutnya</string>
     <string name="quantity">Jumlah</string>
     <string name="order_summary">Ringkasan Order</string>
