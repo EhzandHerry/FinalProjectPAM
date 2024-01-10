@@ -39,7 +39,7 @@ fun PemesananApp(
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PelangganTopAppBar(
+fun PemesananTopAppBar(
     title: String,
     canNavigateBack: Boolean,
     modifier: Modifier = Modifier,

@@ -1,6 +1,6 @@
 package com.example.finalprojectpam.model
 
-data class Pelanggan(
+data class Pemesanan(
     val id: String,
     val nama: String,
     val nohp: String,
