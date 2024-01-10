@@ -12,6 +12,7 @@ import com.example.finalprojectpam.ui.halamanalatmusik.add.AddAlatMusikScreen
 import com.example.finalprojectpam.ui.halamanalatmusik.add.DestinasiAddAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.detail.DestinasiDetailAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.detail.DetailScreenAlatMusik
+import com.example.finalprojectpam.ui.halamanalatmusik.edit.EditDestinationAlatmusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.DestinasiHomeAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeScreenAlatMusik
 import com.example.finalprojectpam.ui.halamanutama.CoverScreen
@@ -68,15 +69,23 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             arguments = listOf(navArgument(DestinasiDetailAlatMusik.alatMusikId){
                 type =NavType.StringType
             })
-            ){
-backStackEntry ->
-val alatMusikId =backStackEntry.arguments?.getString(DestinasiDetailAlatMusik.alatMusikId)
+            ){ backStackEntry ->
+            val alatMusikId =backStackEntry.arguments?.getString(DestinasiDetailAlatMusik.alatMusikId)
             alatMusikId?.let {
                 DetailScreenAlatMusik(
                     navigateBack ={navController.popBackStack()},
-                    navigateToEditItem = {}
+                    navigateToEditItem = {
+                        navController.navigate("${EditDestinationAlatmusik.route}/$alatMusikId")
+                        println("alatMusikId: $alatMusikId")
+                    }
                 )
             }
         }
+        composable(
+            route = EditDestinationAlatmusik.routeWithArgs,
+            arguments = listOf(navArgument(EditDestinationAlatmusik.alatMusikId){
+                type = NavType.StringType
+            })
+        ){}
     }
 }

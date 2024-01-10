@@ -66,7 +66,7 @@ fun DetailScreenAlatMusik(
             )
         }, floatingActionButton = {
             FloatingActionButton(
-                onClick = { /*navigateToEditItem(uiState.value.addEventAlatMusik.id)*/ },
+                onClick = { navigateToEditItem(uiState.value.addEventAlatMusik.id) },
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(18.dp)
 
