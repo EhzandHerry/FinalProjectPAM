@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
 
 sealed class AlatMusikUIState {
@@ -22,14 +23,16 @@ class HomeViewModelAlatMusik(private val repositoriAlatmusik: RepositoriAlatmusi
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
+
     val homeUIStateAlatMusik: StateFlow<HomeUIStateAlatMusik> = repositoriAlatmusik.getAll()
         .filterNotNull()
         .map {
-            HomeUIStateAlatMusik (listAlatMusik = it.toList(), it.size ) }
+            HomeUIStateAlatMusik(listAlatMusik = it.toList(), it.size)
+        }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
-            initialValue = HomeUIStateAlatMusik()
-
+            initialValue = HomeUIStateAlatMusik(),
         )
+
 }
