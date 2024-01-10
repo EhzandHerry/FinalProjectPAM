@@ -122,12 +122,12 @@ private fun ItemDetailsBodyAlatMusik(
         }
         if (deleteConfirmationRequired) {
             DeleteConfirmationDialogAlatMusik(
-//                onDeleteConfirm = {
-//                    deleteConfirmationRequired = false
-//                    onDelete()
-//                },
-//                onDeleteCancel = { deleteConfirmationRequired = false },
-//                modifier = Modifier.padding(12.dp)
+                onDeleteConfirm = {
+                    deleteConfirmationRequired = false
+                    onDelete()
+                },
+                onDeleteCancel = { deleteConfirmationRequired = false },
+                modifier = Modifier.padding(12.dp)
             )
         }
     }
@@ -188,8 +188,8 @@ private fun ItemDetailsRowAlatMusik(
 
 @Composable
 private fun DeleteConfirmationDialogAlatMusik(
-//    onDeleteConfirm: () -> Unit,
-//    onDeleteCancel: () -> Unit,
+    onDeleteConfirm: () -> Unit,
+    onDeleteCancel: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     AlertDialog(onDismissRequest = { /* Do nothing */ },
@@ -197,12 +197,12 @@ private fun DeleteConfirmationDialogAlatMusik(
         text = { Text("Delete") },
         modifier = modifier,
         dismissButton = {
-            TextButton(onClick = { }) {
+            TextButton(onClick = onDeleteCancel) {
                 Text(text = "No")
             }
         },
         confirmButton = {
-            TextButton(onClick = {  }) {
+            TextButton(onClick = onDeleteConfirm) {
                 Text(text = "Yes")
             }
         })
