@@ -1,7 +1,10 @@
 package com.example.finalprojectpam.ui.halamanpelanggan.add
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -18,9 +21,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.finalprojectpam.R
 import com.example.finalprojectpam.navigasi.DestinasiNavigasi
 import com.example.finalprojectpam.ui.AddEventPelanggan
 import com.example.finalprojectpam.ui.AddUIStatePelanggan
@@ -56,20 +62,36 @@ fun AddPelangganScreen(
         }
     ) { innerPadding ->
 
-        EntryBodyPelanggan(
-            addUIStatePelanggan = addPelangganViewModel.addUIStatePelanggan,
-            onPelangganValueChange = addPelangganViewModel::updateAddUIStatePelanggan,
-            onSaveClick = {
-                coroutineScope.launch {
-                    addPelangganViewModel.addPelanggan()
-                    navigateBack()
-                }
-            },
+        Box(
             modifier = Modifier
+                .fillMaxSize()
                 .padding(innerPadding)
-                .verticalScroll(rememberScrollState())
-                .fillMaxWidth()
-        )
+
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.forgambar),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxSize()
+            )
+            EntryBodyPelanggan(
+                addUIStatePelanggan = addPelangganViewModel.addUIStatePelanggan,
+                onPelangganValueChange = addPelangganViewModel::updateAddUIStatePelanggan,
+                onSaveClick = {
+                    coroutineScope.launch {
+                        addPelangganViewModel.addPelanggan()
+                        navigateBack()
+                    }
+                },
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .verticalScroll(rememberScrollState())
+                    .fillMaxWidth()
+            )
+        }
+
+
     }
 }
 
