@@ -1,5 +1,6 @@
 package com.example.finalprojectpam.ui.halamanpelanggan.detail
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,9 +11,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Create
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -32,6 +35,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -74,11 +78,11 @@ fun DetailScreenPelanggan(
             FloatingActionButton(
                 onClick = { navigateToEditItem(uiState.value.addEventPelanggan.id) },
                 shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.padding(18.dp)
-
+                modifier = Modifier.padding(18.dp),
+                containerColor = Color.Gray
             ) {
                 Icon(
-                    imageVector = Icons.Default.Edit,
+                    imageVector = Icons.Default.Create,
                     contentDescription = "",
                 )
             }
@@ -126,8 +130,8 @@ private fun ItemDetailsBodyPelanggan(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier.padding(12.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+        modifier = modifier.padding(10.dp),
+        verticalArrangement = Arrangement.spacedBy(5.dp)
     ) {
         var deleteConfirmationRequired by rememberSaveable { mutableStateOf(false) }
         ItemDetailsPelanggan(
@@ -139,7 +143,10 @@ private fun ItemDetailsBodyPelanggan(
             shape = MaterialTheme.shapes.small,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Hapus Data")
+            Icon(
+                imageVector = Icons.Default.Delete,
+                contentDescription = "",
+            )
         }
         if (deleteConfirmationRequired) {
             DeleteConfirmationDialogPelanggan(
@@ -159,10 +166,12 @@ fun ItemDetailsPelanggan(
     pelanggan: Pelanggan, modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = modifier, colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            contentColor = MaterialTheme.colorScheme.onPrimaryContainer
-        )
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(8.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        shape = RoundedCornerShape(16.dp),
+        border = BorderStroke(1.dp, Color.Black), colors = CardDefaults.cardColors(Color.Cyan)
     ) {
         Column(
             modifier = Modifier
@@ -171,7 +180,7 @@ fun ItemDetailsPelanggan(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             ItemDetailsRowPelanggan(
-                labelResID ="Nama Pelanggan        :",
+                labelResID ="Nama Pelanggan           :",
                 itemDetail = pelanggan.nama,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
@@ -185,7 +194,7 @@ fun ItemDetailsPelanggan(
                 )
             )
             ItemDetailsRowPelanggan(
-                labelResID ="Alamat                           :",
+                labelResID ="Alamat                             :",
                 itemDetail = pelanggan.alamat,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
