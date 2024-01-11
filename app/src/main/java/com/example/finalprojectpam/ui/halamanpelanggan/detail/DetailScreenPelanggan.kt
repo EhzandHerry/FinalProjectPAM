@@ -110,7 +110,7 @@ private fun ItemDetailsBodyPelanggan(
     ) {
         var deleteConfirmationRequired by rememberSaveable { mutableStateOf(false) }
         ItemDetailsPelanggan(
-            Pelanggan  = detailUIStatePelanggan.addEventPelanggan.toPelanggan(), modifier = Modifier.fillMaxWidth()
+            pelanggan  = detailUIStatePelanggan.addEventPelanggan.toPelanggan(), modifier = Modifier.fillMaxWidth()
         )
 
         OutlinedButton(
