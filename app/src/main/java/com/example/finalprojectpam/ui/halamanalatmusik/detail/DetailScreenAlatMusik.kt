@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.finalprojectpam.model.AlatMusik
 import com.example.finalprojectpam.navigasi.DestinasiNavigasi
+import com.example.finalprojectpam.ui.AlatMusikTopAppBar
 import com.example.finalprojectpam.ui.DetailUIStateAlatMusik
 import com.example.finalprojectpam.ui.PemesananTopAppBar
 import com.example.finalprojectpam.ui.PenyediaViewModel
@@ -42,7 +43,7 @@ import kotlinx.coroutines.launch
 
 object DestinasiDetailAlatMusik : DestinasiNavigasi {
     override val route = "Detail_AlatMusik"
-    override val titleRes = "DetailAlatMusik"
+    override val titleRes = "Detail Alat Musik"
     const val alatMusikId = "itemId"
     val routeWithArgs = "$route/{$alatMusikId}"
 }
@@ -59,7 +60,7 @@ fun DetailScreenAlatMusik(
     val coroutineScope = rememberCoroutineScope()
     Scaffold(
         topBar = {
-            PemesananTopAppBar(
+            AlatMusikTopAppBar(
                 title = DestinasiDetailAlatMusik.titleRes,
                 canNavigateBack = true,
                 navigateUp = navigateBack
@@ -118,7 +119,7 @@ private fun ItemDetailsBodyAlatMusik(
             shape = MaterialTheme.shapes.small,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Delete")
+            Text("Hapus Data")
         }
         if (deleteConfirmationRequired) {
             DeleteConfirmationDialogAlatMusik(
@@ -150,22 +151,22 @@ fun ItemDetailsAlatMusik(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             ItemDetailsRowAlatMusik(
-                labelResID ="Nama Alat Musik",
+                labelResID ="Nama Alat Musik  :",
                 itemDetail = alatMusik.namaalat,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
             ItemDetailsRowAlatMusik(
-                labelResID = "Jenis",
+                labelResID = "Jenis                       :",
                 itemDetail = alatMusik.jenis,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
             ItemDetailsRowAlatMusik(
-                labelResID ="Harga",
-                itemDetail = alatMusik.harga,
+                labelResID ="Harga                      :",
+                itemDetail = "Rp."+alatMusik.harga,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
@@ -193,17 +194,17 @@ private fun DeleteConfirmationDialogAlatMusik(
     modifier: Modifier = Modifier
 ) {
     AlertDialog(onDismissRequest = { /* Do nothing */ },
-        title = { Text("Are you sure") },
-        text = { Text("Delete") },
+        title = { Text("Apakah Anda Yakin") },
+        text = { Text("Hapus Data") },
         modifier = modifier,
         dismissButton = {
             TextButton(onClick = onDeleteCancel) {
-                Text(text = "No")
+                Text(text = "Tidak")
             }
         },
         confirmButton = {
             TextButton(onClick = onDeleteConfirm) {
-                Text(text = "Yes")
+                Text(text = "Ya")
             }
         })
 }

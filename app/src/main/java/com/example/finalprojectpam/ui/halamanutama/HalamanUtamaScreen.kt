@@ -7,13 +7,16 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -26,11 +29,12 @@ object DestinasiMenu : DestinasiNavigasi {
 }
 
 @Composable
-fun HalamanUtama(
+fun HalamanUtamaScreen(
     onAlatMusikClicked: () -> Unit,
 //    onPemesananClicked:() -> Unit,
 ){
     Column(
+
     modifier = Modifier
         .fillMaxWidth()
         .fillMaxHeight()
@@ -40,18 +44,23 @@ fun HalamanUtama(
 ) {
     Text(
         text = stringResource(id = R.string.menu),
-        color = Color.DarkGray,
-        fontSize = 40.sp,
+        color = colorResource(id = R.color.orange),
+        fontSize = 50.sp,
         fontWeight = FontWeight.Bold,
-        modifier = Modifier.padding(bottom = 150.dp, top = 100.dp)
+        fontFamily = FontFamily.SansSerif,
+        modifier = Modifier.padding(bottom = 80.dp, top = 150.dp)
     )
         Button(
             onClick = onAlatMusikClicked,
             modifier = Modifier
-                .height(72.dp)
+                .height(50.dp)
                 .fillMaxWidth()
+                .width(10.dp)
         ) {
-            Text("Alat Musik")
+            Text(
+                text="Alat Musik",
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.Monospace)
         }
 
 
@@ -61,9 +70,13 @@ fun HalamanUtama(
         onClick = { },
         modifier = Modifier
             .fillMaxWidth()
-            .height(72.dp)
+            .height(50.dp)
+            .width(10.dp)
     ) {
-        Text("Pemesanan")
+        Text(
+            text="Pemesanan",
+            fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily.Monospace)
     }
 }
 }
