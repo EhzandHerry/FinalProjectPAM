@@ -21,7 +21,6 @@ object PenyediaViewModel {
         initializer {
             HomeViewModelAlatMusik(aplikasiPemesanan().container.repositoriAlatmusik)
         }
-
         initializer {
             AddAlatMusikViewModel(aplikasiPemesanan().container.repositoriAlatmusik)
         }
@@ -31,15 +30,29 @@ object PenyediaViewModel {
                 createSavedStateHandle(),
                 aplikasiPemesanan().container.repositoriAlatmusik)
         }
-
         initializer {
             EditViewModelAlatMusik(
                 createSavedStateHandle(),
                 aplikasiPemesanan().container.repositoriAlatmusik)
         }
+
         initializer {
             HomeViewModelPelanggan(aplikasiPemesanan().container.repositoriPelanggan)
         }
+//        initializer {
+//            AddAlatMusikViewModel(aplikasiPemesanan().container.repositoriAlatmusik)
+//        }
+//
+//        initializer {
+//            DetailAlatMusikViewModel(
+//                createSavedStateHandle(),
+//                aplikasiPemesanan().container.repositoriAlatmusik)
+//        }
+//        initializer {
+//            EditViewModelAlatMusik(
+//                createSavedStateHandle(),
+//                aplikasiPemesanan().container.repositoriAlatmusik)
+//        }
 
 
         /**initializer {

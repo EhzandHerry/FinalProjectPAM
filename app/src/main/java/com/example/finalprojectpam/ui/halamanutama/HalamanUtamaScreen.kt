@@ -41,14 +41,14 @@ fun HalamanUtamaScreen(
     verticalArrangement = Arrangement.spacedBy(16.dp),
     horizontalAlignment = Alignment.CenterHorizontally
 ) {
-    Text(
-        text = stringResource(id = R.string.menu),
-        color = colorResource(id = R.color.orange),
-        fontSize = 50.sp,
-        fontWeight = FontWeight.Bold,
-        fontFamily = FontFamily.SansSerif,
-        modifier = Modifier.padding(bottom = 80.dp, top = 150.dp)
-    )
+        Text(
+            text = stringResource(id = R.string.menu),
+            color = colorResource(id = R.color.orange),
+            fontSize = 50.sp,
+            fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily.SansSerif,
+            modifier = Modifier.padding(bottom = 80.dp, top = 150.dp)
+        )
         Button(
             onClick = onAlatMusikClicked,
             modifier = Modifier
@@ -57,25 +57,27 @@ fun HalamanUtamaScreen(
                 .width(10.dp)
         ) {
             Text(
-                text="Alat Musik",
+                text = "Alat Musik",
                 fontWeight = FontWeight.Bold,
-                fontFamily = FontFamily.Monospace)
+                fontFamily = FontFamily.Monospace
+            )
         }
 
 
-    Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
-    Button(
-        onClick = { },
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(50.dp)
-            .width(10.dp)
-    ) {
-        Text(
-            text="Pemesanan",
-            fontWeight = FontWeight.Bold,
-            fontFamily = FontFamily.Monospace)
+        Button(
+            onClick =  onPelangganClicked ,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp)
+                .width(10.dp)
+        ) {
+            Text(
+                text = "Pelanggan",
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.Monospace
+            )
+        }
     }
-}
 }
