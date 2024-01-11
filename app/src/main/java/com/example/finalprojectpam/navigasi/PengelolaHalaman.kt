@@ -33,7 +33,7 @@ import com.example.finalprojectpam.ui.halamanutama.HalamanUtamaScreen
 fun PengelolaHalaman(navController: NavHostController = rememberNavController()) {
     NavHost(
         navController = navController,
-        startDestination = DestinasiMenu.route,
+        startDestination = DestinasiHome.route,
         modifier = Modifier
     ){
         composable(DestinasiHome.route

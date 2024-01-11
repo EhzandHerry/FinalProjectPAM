@@ -59,14 +59,18 @@ fun HalamanUtamaScreen(
             // Your existing content goes here
 
             Text(
+
                 text = stringResource(id = R.string.menu),
-                color = MaterialTheme.colorScheme.primary,
+                color = Color.White,
                 fontSize = 50.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.SansSerif,
-                modifier = Modifier.padding(bottom = 80.dp, top = 150.dp)
+                modifier = Modifier.padding(bottom = 200.dp, top = 50.dp)
             )
             Button(
+                colors = ButtonDefaults.buttonColors(
+                    Color.DarkGray
+                ),
                 onClick = onAlatMusikClicked,
                 modifier = Modifier
                     .height(50.dp)

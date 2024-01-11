@@ -3,6 +3,7 @@ package com.example.finalprojectpam.ui.halamanutama
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -70,111 +71,107 @@ fun CoverScreen(
     auth = Firebase.auth
     var emailText by remember { mutableStateOf("") }
     var passwordText by remember { mutableStateOf("") }
-    val image = painterResource(id = R.drawable.cover)
-    Column(
-        modifier = Modifier,
-        verticalArrangement = Arrangement.SpaceBetween
-    ) {
-        OutlinedCard(
 
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surface,
-            ),
-            border = BorderStroke(1.dp, Color.Magenta), modifier = Modifier
-                .fillMaxWidth(0.9f)
-                .padding(vertical = 100.dp)
-                .align(Alignment.CenterHorizontally)
-        ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier
-                    .align(Alignment.CenterHorizontally)
-            ) {
-                Text(
-                    text = "Toko Alat Musik",
-                    color = Color.DarkGray,
-                    fontFamily = FontFamily.SansSerif,
-                    fontSize = 30.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier =  Modifier
-                        .align(Alignment.CenterHorizontally)
-                )
-                Text(
-                    text = "Jikustik",
-                    color = Color.DarkGray,
-                    fontFamily = FontFamily.Serif,
-                    fontSize = 55.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Image(
-                    painter = image,
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(300.dp)
-                )
-
-            }
-        }
-    }
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
-            .padding(horizontal = 35.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Bottom
     ) {
-        OutlinedTextField(value = emailText,
-            onValueChange = { emailText = it },
-            label = { Text(text = "Email")},
-            singleLine = true,
-            leadingIcon = {
-                IconButton(onClick = {}) {
-                    Icon(
-                        imageVector = Icons.Filled.Email,
-                        contentDescription = "Email Icon")
-                }
-            },
-            shape = RoundedCornerShape(20.dp),
-            modifier = Modifier.padding(vertical = 5.dp)
+        // Background Image
+        Image(
+            painter = painterResource(id = R.drawable.bg_login),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxSize()
         )
-        OutlinedTextField(value = passwordText,
-            onValueChange = {passwordText = it},
-            label = { Text(text = "Password")},
-            visualTransformation = PasswordVisualTransformation(),
-            singleLine = true,
-            leadingIcon = {
-                IconButton(onClick = { }) {
-                    Icon(imageVector = Icons.Filled.Lock, contentDescription = "Pass Icon")
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight()
+                        .padding(80.dp),
+                    verticalArrangement = Arrangement.Top
+                ) {
+                    Text(
+                        text = "Jikustik",
+                        color = Color.DarkGray,
+                        fontFamily = FontFamily.SansSerif,
+                        fontSize = 55.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier =  Modifier
+                            .align(Alignment.CenterHorizontally)
+                    )
+                    Text(
+                        text = "Aplication",
+                        color = Color.DarkGray,
+                        fontFamily = FontFamily.Serif,
+                        fontSize = 30.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+
                 }
-            },
-            shape = RoundedCornerShape(20.dp),
-            modifier = Modifier.padding( vertical = 5.dp)
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(
-            onClick = { (
-                    auth.signInWithEmailAndPassword(emailText, passwordText)
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                navController.navigate(DestinasiMenu.route)
-                                Toast.makeText(context, "Login success", Toast.LENGTH_SHORT).show()
-                            } else {
-                                Toast.makeText(context, "Login failed", Toast.LENGTH_SHORT).show()
-                            }
-                        }
-                    ) },
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(16.dp),
-            colors = ButtonDefaults.buttonColors(
-                Color.DarkGray
+            }
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight()
+                .padding(horizontal = 35.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            OutlinedTextField(value = emailText,
+                onValueChange = { emailText = it },
+                label = { Text(text = "Email")},
+                singleLine = true,
+                leadingIcon = {
+                    IconButton(onClick = {}) {
+                        Icon(
+                            imageVector = Icons.Filled.Email,
+                            contentDescription = "Email Icon")
+                    }
+                },
+                shape = RoundedCornerShape(20.dp),
+                modifier = Modifier.padding(vertical = 5.dp)
             )
-        )
-        {
-            Text(text = "Sign in")
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-    }
-}
+            OutlinedTextField(value = passwordText,
+                onValueChange = {passwordText = it},
+                label = { Text(text = "Password")},
+                visualTransformation = PasswordVisualTransformation(),
+                singleLine = true,
+                leadingIcon = {
+                    IconButton(onClick = { }) {
+                        Icon(imageVector = Icons.Filled.Lock, contentDescription = "Pass Icon")
+                    }
+                },
+                shape = RoundedCornerShape(20.dp),
+                modifier = Modifier.padding( vertical = 5.dp)
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(
+                onClick = { (
+                        auth.signInWithEmailAndPassword(emailText, passwordText)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    navController.navigate(DestinasiMenu.route)
+                                    Toast.makeText(context, "Login success", Toast.LENGTH_SHORT).show()
+                                } else {
+                                    Toast.makeText(context, "Login failed", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        ) },
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(16.dp),
+                colors = ButtonDefaults.buttonColors(
+                    Color.DarkGray
+                )
+            )
+            {
+                Text(text = "Sign in")
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+        }}
+
+
