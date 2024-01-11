@@ -144,6 +144,7 @@ fun FormInput(
         OutlinedTextField(
             value = addEventPelanggan.nohp,
             onValueChange = { onValueChange(addEventPelanggan.copy(nohp = it)) },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             label = { Text("No Hp") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
@@ -152,7 +153,6 @@ fun FormInput(
         OutlinedTextField(
             value = addEventPelanggan.alamat,
             onValueChange = { onValueChange(addEventPelanggan.copy(alamat = it)) },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             label = { Text(text = "Alamat") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
