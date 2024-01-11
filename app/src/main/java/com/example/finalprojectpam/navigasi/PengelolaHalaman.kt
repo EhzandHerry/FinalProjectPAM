@@ -31,10 +31,9 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
 
         composable(DestinasiHome.route
         ) {
-            CoverScreen(
-                onNextButtonClicked = { navController.navigate(DestinasiMenu.route)
-                }
-            )
+
+            CoverScreen(navController)
+
         }
 
 
