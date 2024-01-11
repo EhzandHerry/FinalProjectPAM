@@ -1,5 +1,6 @@
 package com.example.finalprojectpam.ui.halamanpelanggan.home
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -48,7 +49,7 @@ import com.example.finalprojectpam.ui.PenyediaViewModel
 
 object DestinasiHomePelanggan : DestinasiNavigasi {
     override val route = "Home_Pelanggan"
-    override val titleRes = "Home Pelanggan"
+    override val titleRes = "Data Pelanggan"
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -164,10 +165,13 @@ fun DataPelanggan(
     modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(8.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        shape = RoundedCornerShape(10.dp)
-    ) {
+        shape = RoundedCornerShape(16.dp),
+        border = BorderStroke(1.dp, Color.Cyan)
+    ){
         Column(
             modifier = Modifier.padding(12.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),

@@ -1,5 +1,6 @@
 package com.example.finalprojectpam.ui.halamanalatmusik.home
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -9,7 +10,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -21,7 +21,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -166,11 +165,14 @@ fun DataAlatMusik(
     alatMusik: AlatMusik,
     modifier: Modifier = Modifier
 ) {
-    Card(
-        modifier = modifier,
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        shape = RoundedCornerShape(10.dp)
-    ) {
+      Card(
+          modifier = modifier
+              .fillMaxWidth()
+              .padding(8.dp),
+          elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+          shape = RoundedCornerShape(16.dp),
+          border = BorderStroke(1.dp, Color.Red)
+      ) {
         val image = painterResource(id = R.drawable.musiclogo)
         Column(
             modifier = Modifier.padding(12.dp),

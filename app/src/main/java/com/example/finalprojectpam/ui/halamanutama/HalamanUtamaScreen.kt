@@ -1,7 +1,6 @@
 package com.example.finalprojectpam.ui.halamanutama
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,7 +8,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -59,7 +57,6 @@ fun HalamanUtamaScreen(
             // Your existing content goes here
 
             Text(
-
                 text = stringResource(id = R.string.menu),
                 color = Color.White,
                 fontSize = 50.sp,
