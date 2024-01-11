@@ -171,28 +171,28 @@ fun ItemDetailsPelanggan(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             ItemDetailsRowPelanggan(
-                labelResID ="Nama Pelanggan    :",
+                labelResID ="Nama Pelanggan        :",
                 itemDetail = pelanggan.nama,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
             ItemDetailsRowPelanggan(
-                labelResID = "NoHp                        :",
+                labelResID = "No. Hp                             :",
                 itemDetail = pelanggan.nohp,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
             ItemDetailsRowPelanggan(
-                labelResID ="Alamat                     :",
+                labelResID ="Alamat                           :",
                 itemDetail = pelanggan.alamat,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
             ItemDetailsRowPelanggan(
-                labelResID ="Membeli Alat musik   :",
+                labelResID ="Alat Musik yang dibeli   :",
                 itemDetail = pelanggan.alatmusik,
                 modifier = Modifier.padding(
                     horizontal = 12.dp

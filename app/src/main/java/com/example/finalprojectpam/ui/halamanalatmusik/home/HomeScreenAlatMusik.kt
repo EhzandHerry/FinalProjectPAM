@@ -182,12 +182,12 @@ fun DataAlatMusik(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = alatMusik.namaalat,
+                    text = " "+alatMusik.namaalat,
                     style = MaterialTheme.typography.titleLarge,
                     color = Color.DarkGray,
                     fontFamily = FontFamily.Serif,
                     fontSize = 30.sp,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
                 )
                 Spacer(Modifier.weight(1f))
                 Image(
@@ -198,7 +198,7 @@ fun DataAlatMusik(
 
                 )
                 Text(
-                    text = alatMusik.jenis,
+                    text = " "+alatMusik.jenis,
                     style = MaterialTheme.typography.titleMedium,
                     color = Color.DarkGray,
                     fontFamily = FontFamily.Monospace,

@@ -180,7 +180,7 @@ fun DataPelanggan(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = pelanggan.nama,
+                    text = " "+ pelanggan.nama,
                     style = MaterialTheme.typography.titleLarge,
                     color = Color.DarkGray,
                     fontFamily = FontFamily.Serif,
@@ -193,7 +193,7 @@ fun DataPelanggan(
                     contentDescription = ""
                 )
                 Text(
-                    text = pelanggan.nohp,
+                    text = " "+pelanggan.nohp,
                     style = MaterialTheme.typography.titleMedium,
                     color = Color.DarkGray,
                     fontFamily = FontFamily.Monospace,
