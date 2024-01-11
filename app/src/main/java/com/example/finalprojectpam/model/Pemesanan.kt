@@ -4,9 +4,10 @@ data class Pelanggan(
     val id: String,
     val nama: String,
     val nohp: String,
-    val alamat: String
+    val alamat: String,
+    val alatmusik: String
 ){
-    constructor(): this("","","","")
+    constructor(): this("","","","","")
 }
 
 data class AlatMusik(

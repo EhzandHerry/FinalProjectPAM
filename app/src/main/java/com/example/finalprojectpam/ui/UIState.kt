@@ -25,7 +25,8 @@ data class AddEventPelanggan(
     val id: String="",
     val nama: String="",
     val nohp: String="",
-    val alamat: String=""
+    val alamat: String="",
+    val alatmusik: String=""
 )
 data class AddEventAlatMusik(
     val id: String = "",
@@ -39,7 +40,8 @@ fun AddEventPelanggan.toPelanggan()= Pelanggan(
     id = id,
     nama = nama,
     nohp = nohp,
-    alamat = alamat
+    alamat = alamat,
+    alatmusik = alatmusik
 )
 fun AddEventAlatMusik.toAlatMusik()= AlatMusik(
     id = id,
@@ -61,7 +63,8 @@ fun Pelanggan.toDetailPelanggan():AddEventPelanggan=
         id = id,
         nama = nama,
         nohp = nohp,
-        alamat = alamat
+        alamat = alamat,
+        alatmusik = alatmusik
     )
 fun AlatMusik.toDetailAlatMusik():AddEventAlatMusik=
     AddEventAlatMusik(

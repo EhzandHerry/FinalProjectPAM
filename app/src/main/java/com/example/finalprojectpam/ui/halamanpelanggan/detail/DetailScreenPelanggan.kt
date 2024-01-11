@@ -191,6 +191,13 @@ fun ItemDetailsPelanggan(
                     horizontal = 12.dp
                 )
             )
+            ItemDetailsRowPelanggan(
+                labelResID ="Membeli Alat musik                    :",
+                itemDetail = pelanggan.alatmusik,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
         }
 
     }

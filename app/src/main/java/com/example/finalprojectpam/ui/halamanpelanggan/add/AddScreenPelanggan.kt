@@ -158,6 +158,14 @@ fun FormInput(
             enabled = enabled,
             singleLine = true
         )
+        OutlinedTextField(
+            value = addEventPelanggan.alatmusik,
+            onValueChange = { onValueChange(addEventPelanggan.copy(alatmusik = it)) },
+            label = { Text("Membeli Alat Musik") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
 
     }
 }
