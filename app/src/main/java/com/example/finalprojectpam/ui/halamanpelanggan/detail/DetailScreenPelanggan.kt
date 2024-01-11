@@ -1,9 +1,12 @@
 package com.example.finalprojectpam.ui.halamanpelanggan.detail
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -29,9 +32,12 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.finalprojectpam.R
 import com.example.finalprojectpam.model.Pelanggan
 import com.example.finalprojectpam.navigasi.DestinasiNavigasi
 import com.example.finalprojectpam.ui.PelangganTopAppBar
@@ -78,23 +84,38 @@ fun DetailScreenPelanggan(
             }
         }, modifier = modifier
     ) { innerPadding ->
-        ItemDetailsBodyPelanggan(
-            detailUIStatePelanggan = uiState.value,
-            onDelete = {
-                // Note: If the user rotates the screen very fast, the operation may get cancelled
-                // and the item may not be deleted from the Database. This is because when config
-                // change occurs, the Activity will be recreated and the rememberCoroutineScope will
-                // be cancelled - since the scope is bound to composition.
-                coroutineScope.launch {
-                    viewModel.deletePelanggan()
-                    navigateBack()
-                }
-            },
+        Box(
             modifier = Modifier
+                .fillMaxSize()
                 .padding(innerPadding)
-                .verticalScroll(rememberScrollState()),
 
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.forgambar),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxSize()
             )
+            ItemDetailsBodyPelanggan(
+                detailUIStatePelanggan = uiState.value,
+                onDelete = {
+                    // Note: If the user rotates the screen very fast, the operation may get cancelled
+                    // and the item may not be deleted from the Database. This is because when config
+                    // change occurs, the Activity will be recreated and the rememberCoroutineScope will
+                    // be cancelled - since the scope is bound to composition.
+                    coroutineScope.launch {
+                        viewModel.deletePelanggan()
+                        navigateBack()
+                    }
+                },
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .verticalScroll(rememberScrollState()),
+
+                )
+        }
+
     }
 }
 
