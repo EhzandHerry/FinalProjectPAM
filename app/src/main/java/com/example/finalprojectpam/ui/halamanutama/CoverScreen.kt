@@ -59,7 +59,7 @@ object DestinasiHome : DestinasiNavigasi {
     override val titleRes = "Cover"
 }
 
-//Test
+//Test2
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
