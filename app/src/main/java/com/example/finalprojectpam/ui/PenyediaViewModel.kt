@@ -10,6 +10,7 @@ import com.example.finalprojectpam.ui.halamanalatmusik.add.AddAlatMusikViewModel
 import com.example.finalprojectpam.ui.halamanalatmusik.detail.DetailAlatMusikViewModel
 import com.example.finalprojectpam.ui.halamanalatmusik.edit.EditViewModelAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeViewModelAlatMusik
+import com.example.finalprojectpam.ui.halamanpelanggan.add.AddPelangganViewModel
 import com.example.finalprojectpam.ui.halamanpelanggan.home.HomeViewModelPelanggan
 
 fun CreationExtras.aplikasiPemesanan(): PemesananAplication =
@@ -39,9 +40,9 @@ object PenyediaViewModel {
         initializer {
             HomeViewModelPelanggan(aplikasiPemesanan().container.repositoriPelanggan)
         }
-//        initializer {
-//            AddAlatMusikViewModel(aplikasiPemesanan().container.repositoriAlatmusik)
-//        }
+        initializer {
+            AddPelangganViewModel(aplikasiPemesanan().container.repositoriPelanggan)
+        }
 //
 //        initializer {
 //            DetailAlatMusikViewModel(

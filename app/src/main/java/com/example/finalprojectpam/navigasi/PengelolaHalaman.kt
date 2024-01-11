@@ -16,6 +16,7 @@ import com.example.finalprojectpam.ui.halamanalatmusik.edit.EditDestinationAlatm
 import com.example.finalprojectpam.ui.halamanalatmusik.edit.EditScreenAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.DestinasiHomeAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeScreenAlatMusik
+import com.example.finalprojectpam.ui.halamanpelanggan.add.AddPelangganScreen
 import com.example.finalprojectpam.ui.halamanpelanggan.add.DestinasiAddPelanggan
 import com.example.finalprojectpam.ui.halamanpelanggan.home.DestinasiHomePelanggan
 import com.example.finalprojectpam.ui.halamanpelanggan.home.HomeScreenPelanggan
@@ -28,7 +29,7 @@ import com.example.finalprojectpam.ui.halamanutama.HalamanUtamaScreen
 fun PengelolaHalaman(navController: NavHostController = rememberNavController()) {
     NavHost(
         navController = navController,
-        startDestination = DestinasiHome.route,
+        startDestination = DestinasiMenu.route,
         modifier = Modifier
     ){
         composable(DestinasiHome.route
@@ -47,29 +48,31 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 }
             )
         }
+
         composable(DestinasiHomeAlatMusik.route
      ){
             HomeScreenAlatMusik(
                 navigateToItemEntryAlatMusik = {
                     navController.navigate(DestinasiAddAlatMusik.route)
                 },
-                onDetailClickAlatMusik = {itemId ->
-                    navController.navigate("${DestinasiDetailAlatMusik.route}/$itemId")
-                    println("itemId: $itemId")
+                onDetailClickAlatMusik = {itemIdAlatMusik ->
+                    navController.navigate("${DestinasiDetailAlatMusik.route}/$itemIdAlatMusik")
+                    println("itemIdAlatMusik: $itemIdAlatMusik")
                 },
                 navigateBack = {navController.popBackStack()}
             )
         }
+
         composable(DestinasiHomePelanggan.route
         ){
             HomeScreenPelanggan(
                 navigateToItemEntryPelanggan = {
                     navController.navigate(DestinasiAddPelanggan.route)
                 },
-//                onDetailClickAlatMusik = {itemId ->
-//                    navController.navigate("${DestinasiDetailAlatMusik.route}/$itemId")
-//                    println("itemId: $itemId")
-//                },
+                onDetailClickPelanggan = {itemIdPelanggan ->
+                    navController.navigate("${DestinasiDetailAlatMusik.route}/$itemIdPelanggan")
+                    println("itemIdPelanggan: $itemIdPelanggan")
+                },
                 navigateBack = {navController.popBackStack()}
             )
         }
@@ -79,6 +82,16 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             }
             )
         }
+
+        composable(DestinasiAddPelanggan.route){
+            AddPelangganScreen(navigateBack ={
+                navController.popBackStack()
+            }
+            )
+        }
+
+
+
 
         composable(
             route = DestinasiDetailAlatMusik.routeWithArgs,

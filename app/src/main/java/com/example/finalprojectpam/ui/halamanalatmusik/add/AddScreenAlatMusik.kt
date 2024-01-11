@@ -29,8 +29,8 @@ import com.example.finalprojectpam.ui.PenyediaViewModel
 import kotlinx.coroutines.launch
 
 object DestinasiAddAlatMusik : DestinasiNavigasi {
-    override val route = "Add AlatMusik"
-    override val titleRes = "AddAlatMusik"
+    override val route = "Add_AlatMusik"
+    override val titleRes = "Add AlatMusik"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -61,7 +61,8 @@ fun Pelanggan.toDetailPelanggan():AddEventPelanggan=
         id = id,
         nama = nama,
         nohp = nohp,
-        alamat = alamat)
+        alamat = alamat
+    )
 fun AlatMusik.toDetailAlatMusik():AddEventAlatMusik=
     AddEventAlatMusik(
         id = id,

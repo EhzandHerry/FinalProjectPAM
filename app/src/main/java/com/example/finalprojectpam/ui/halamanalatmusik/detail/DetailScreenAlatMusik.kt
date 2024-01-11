@@ -43,7 +43,7 @@ import kotlinx.coroutines.launch
 object DestinasiDetailAlatMusik : DestinasiNavigasi {
     override val route = "Detail_AlatMusik"
     override val titleRes = "Detail Alat Musik"
-    const val alatMusikId = "itemId"
+    const val alatMusikId = "itemIdAlatMusik"
     val routeWithArgs = "$route/{$alatMusikId}"
 }
 
