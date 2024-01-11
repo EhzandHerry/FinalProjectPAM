@@ -1,7 +1,9 @@
 package com.example.finalprojectpam.ui.halamanpelanggan.home
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -31,12 +33,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.finalprojectpam.R
 import com.example.finalprojectpam.model.Pelanggan
 import com.example.finalprojectpam.navigasi.DestinasiNavigasi
 import com.example.finalprojectpam.ui.PelangganTopAppBar
@@ -81,14 +86,28 @@ fun HomeScreenPelanggan(
             }
         },
     ) { innerPadding ->
-        val uiStatePelanggan by viewModel.homeUIStatePelanggan.collectAsState()
-        BodyHome(
-            itemPelanggan = uiStatePelanggan.listPelanggan,
+        Box(
             modifier = Modifier
+                .fillMaxSize()
                 .padding(innerPadding)
-                .fillMaxSize(),
-            onOrderClick = onDetailClickPelanggan
-        )
+
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.bg_home),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxSize()
+            )
+            val uiStatePelanggan by viewModel.homeUIStatePelanggan.collectAsState()
+            BodyHome(
+                itemPelanggan = uiStatePelanggan.listPelanggan,
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .fillMaxSize(),
+                onOrderClick = onDetailClickPelanggan
+            )}
+
     }
 }
 @Composable
@@ -103,6 +122,7 @@ fun BodyHome(
     ) {
         if (itemPelanggan.isEmpty()) {
             Text(
+                color = Color.White,
                 text = "Tidak ada data Pelanggan",
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge

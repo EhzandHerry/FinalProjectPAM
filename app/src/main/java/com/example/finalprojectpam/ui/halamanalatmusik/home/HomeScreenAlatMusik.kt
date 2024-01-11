@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -101,14 +102,28 @@ fun HomeScreenAlatMusik(
             }
         },
     ) { innerPadding ->
-        val uiStateAlatMusik by viewModel.homeUIStateAlatMusik.collectAsState()
-        BodyHome(
-            itemAlatMusik = uiStateAlatMusik.listAlatMusik,
+        Box(
             modifier = Modifier
+                .fillMaxSize()
                 .padding(innerPadding)
-                .fillMaxSize(),
-            onOrderClick = onDetailClickAlatMusik
-        )
+
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.bg_home),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxSize()
+            )
+            val uiStateAlatMusik by viewModel.homeUIStateAlatMusik.collectAsState()
+            BodyHome(
+                itemAlatMusik = uiStateAlatMusik.listAlatMusik,
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .fillMaxSize(),
+                onOrderClick = onDetailClickAlatMusik
+            )}
+
     }
 }
 @Composable
@@ -123,6 +138,7 @@ fun BodyHome(
     ) {
         if (itemAlatMusik.isEmpty()) {
             Text(
+                color = Color.White,
                 text = "Tidak ada data Alat Musik",
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge
