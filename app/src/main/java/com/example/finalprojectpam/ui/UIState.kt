@@ -1,11 +1,11 @@
 package com.example.finalprojectpam.ui
 
 import com.example.finalprojectpam.model.AlatMusik
-import com.example.finalprojectpam.model.Pemesanan
+import com.example.finalprojectpam.model.Pelanggan
 
 
-data class HomeUIStatePemesanan(
-    val listPemesanan: List<Pemesanan> = listOf(),
+data class HomeUIStatePelanggan(
+    val listPelanggan: List<Pelanggan> = listOf(),
     val dataLength: Int = 0
 )
 data class HomeUIStateAlatMusik(
@@ -13,15 +13,15 @@ data class HomeUIStateAlatMusik(
     val dataLength: Int = 0
 )
 
-data class AddUIStatePemesanan(
-    val addEventPemesanan: AddEventPemesanan= AddEventPemesanan(),
+data class AddUIStatePelanggan(
+    val addEventPelanggan: AddEventPelanggan= AddEventPelanggan(),
 )
 data class AddUIStateAlatMusik(
     val addEventAlatMusik: AddEventAlatMusik = AddEventAlatMusik(),
 )
 
 
-data class AddEventPemesanan(
+data class AddEventPelanggan(
     val id: String="",
     val nama: String="",
     val nohp: String="",
@@ -35,7 +35,7 @@ data class AddEventAlatMusik(
 )
 
 
-fun AddEventPemesanan.toPemesanan()= Pemesanan(
+fun AddEventPelanggan.toPelanggan()= Pelanggan(
     id = id,
     nama = nama,
     nohp = nohp,
@@ -49,15 +49,15 @@ fun AddEventAlatMusik.toAlatMusik()= AlatMusik(
 )
 
 
-data class  DetailUIStatePemesanan(
-    val addEventPemesanan: AddEventPemesanan= AddEventPemesanan(),
+data class  DetailUIStatePelanggan(
+    val addEventPelanggan: AddEventPelanggan= AddEventPelanggan(),
 )
 data class  DetailUIStateAlatMusik(
     val addEventAlatMusik: AddEventAlatMusik= AddEventAlatMusik(),
 )
 
-fun Pemesanan.toDetailPemesanan():AddEventPemesanan=
-    AddEventPemesanan(
+fun Pelanggan.toDetailPelanggan():AddEventPelanggan=
+    AddEventPelanggan(
         id = id,
         nama = nama,
         nohp = nohp,
@@ -71,8 +71,8 @@ fun AlatMusik.toDetailAlatMusik():AddEventAlatMusik=
     )
 
 
-fun Pemesanan.toUIStatePemesanan(): AddUIStatePemesanan = AddUIStatePemesanan(
-    addEventPemesanan = this.toDetailPemesanan()
+fun Pelanggan.toUIStatePelanggan(): AddUIStatePelanggan = AddUIStatePelanggan(
+    addEventPelanggan = this.toDetailPelanggan()
 )
 fun AlatMusik.toUIStateAlatMusik(): AddUIStateAlatMusik = AddUIStateAlatMusik(
     addEventAlatMusik = this.toDetailAlatMusik()

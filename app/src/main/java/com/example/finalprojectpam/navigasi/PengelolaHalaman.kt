@@ -16,6 +16,9 @@ import com.example.finalprojectpam.ui.halamanalatmusik.edit.EditDestinationAlatm
 import com.example.finalprojectpam.ui.halamanalatmusik.edit.EditScreenAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.DestinasiHomeAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeScreenAlatMusik
+import com.example.finalprojectpam.ui.halamanpelanggan.add.DestinasiAddPelanggan
+import com.example.finalprojectpam.ui.halamanpelanggan.home.DestinasiHomePelanggan
+import com.example.finalprojectpam.ui.halamanpelanggan.home.HomeScreenPelanggan
 import com.example.finalprojectpam.ui.halamanutama.CoverScreen
 import com.example.finalprojectpam.ui.halamanutama.DestinasiHome
 import com.example.finalprojectpam.ui.halamanutama.DestinasiMenu
@@ -38,6 +41,9 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             HalamanUtamaScreen(
                 onAlatMusikClicked = {
                     navController.navigate(DestinasiHomeAlatMusik.route)
+                },
+                onPelangganClicked = {
+                    navController.navigate((DestinasiHomePelanggan.route))
                 }
             )
         }
@@ -51,6 +57,19 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                     navController.navigate("${DestinasiDetailAlatMusik.route}/$itemId")
                     println("itemId: $itemId")
                 },
+                navigateBack = {navController.popBackStack()}
+            )
+        }
+        composable(DestinasiHomePelanggan.route
+        ){
+            HomeScreenPelanggan(
+                navigateToItemEntryPelanggan = {
+                    navController.navigate(DestinasiAddPelanggan.route)
+                },
+//                onDetailClickAlatMusik = {itemId ->
+//                    navController.navigate("${DestinasiDetailAlatMusik.route}/$itemId")
+//                    println("itemId: $itemId")
+//                },
                 navigateBack = {navController.popBackStack()}
             )
         }

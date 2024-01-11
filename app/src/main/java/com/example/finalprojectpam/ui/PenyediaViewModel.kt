@@ -10,16 +10,13 @@ import com.example.finalprojectpam.ui.halamanalatmusik.add.AddAlatMusikViewModel
 import com.example.finalprojectpam.ui.halamanalatmusik.detail.DetailAlatMusikViewModel
 import com.example.finalprojectpam.ui.halamanalatmusik.edit.EditViewModelAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeViewModelAlatMusik
+import com.example.finalprojectpam.ui.halamanpelanggan.home.HomeViewModelPelanggan
 
 fun CreationExtras.aplikasiPemesanan(): PemesananAplication =
     (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as PemesananAplication)
 
 object PenyediaViewModel {
     val Factory = viewModelFactory {
-
-      /**  initializer {
-            AddViewModel(aplikasiPemesanan().container.repositoriPemesanan)
-        }*/
 
         initializer {
             HomeViewModelAlatMusik(aplikasiPemesanan().container.repositoriAlatmusik)
@@ -38,9 +35,12 @@ object PenyediaViewModel {
         initializer {
             EditViewModelAlatMusik(
                 createSavedStateHandle(),
-                aplikasiPemesanan().container.repositoriAlatmusik
-            )
+                aplikasiPemesanan().container.repositoriAlatmusik)
         }
+        initializer {
+            HomeViewModelPelanggan(aplikasiPemesanan().container.repositoriPelanggan)
+        }
+
 
         /**initializer {
             DetailViewModel(
