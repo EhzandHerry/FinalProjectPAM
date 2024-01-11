@@ -1,19 +1,22 @@
 package com.example.finalprojectpam.ui.halamanutama
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -32,52 +35,69 @@ fun HalamanUtamaScreen(
     onAlatMusikClicked: () -> Unit,
     onPelangganClicked:()-> Unit
 ){
-    Column(
-
-    modifier = Modifier
-        .fillMaxWidth()
-        .fillMaxHeight()
-        .padding(16.dp),
-    verticalArrangement = Arrangement.spacedBy(16.dp),
-    horizontalAlignment = Alignment.CenterHorizontally
-) {
-        Text(
-            text = stringResource(id = R.string.menu),
-            color = colorResource(id = R.color.orange),
-            fontSize = 50.sp,
-            fontWeight = FontWeight.Bold,
-            fontFamily = FontFamily.SansSerif,
-            modifier = Modifier.padding(bottom = 80.dp, top = 150.dp)
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+    ) {
+        // Background Image
+        Image(
+            painter = painterResource(id = R.drawable.background),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxSize()
         )
-        Button(
-            onClick = onAlatMusikClicked,
-            modifier = Modifier
-                .height(50.dp)
-                .fillMaxWidth()
-                .width(10.dp)
-        ) {
-            Text(
-                text = "Alat Musik",
-                fontWeight = FontWeight.Bold,
-                fontFamily = FontFamily.Monospace
-            )
-        }
-
-
-        Spacer(modifier = Modifier.height(20.dp))
-
-        Button(
-            onClick =  onPelangganClicked ,
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(50.dp)
-                .width(10.dp)
+                .fillMaxHeight()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            // Your existing content goes here
+
             Text(
-                text = "Pelanggan",
+                text = stringResource(id = R.string.menu),
+                color = MaterialTheme.colorScheme.primary,
+                fontSize = 50.sp,
                 fontWeight = FontWeight.Bold,
-                fontFamily = FontFamily.Monospace
+                fontFamily = FontFamily.SansSerif,
+                modifier = Modifier.padding(bottom = 80.dp, top = 150.dp)
             )
+            Button(
+                onClick = onAlatMusikClicked,
+                modifier = Modifier
+                    .height(50.dp)
+                    .fillMaxWidth()
+                    .width(10.dp)
+            ) {
+                Text(
+                    text = "Alat Musik",
+                    fontWeight = FontWeight.Bold,
+                    fontFamily = FontFamily.Monospace
+                )
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            Button(
+                colors = ButtonDefaults.buttonColors(
+                    Color.DarkGray
+                ),
+                onClick =  onPelangganClicked ,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp)
+                    .width(10.dp)
+            ) {
+                Text(
+                    text = "Pelanggan",
+                    fontWeight = FontWeight.Bold,
+                    fontFamily = FontFamily.Monospace
+                )
+            }
         }
     }
 }
