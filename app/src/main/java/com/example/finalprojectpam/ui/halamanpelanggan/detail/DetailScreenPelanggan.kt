@@ -43,7 +43,7 @@ import kotlinx.coroutines.launch
 object DestinasiDetailPelanggan : DestinasiNavigasi {
     override val route = "Detail_Pelanggan"
     override val titleRes = "Detail Pelanggan"
-    const val pelangganId = "pelangganId"
+    const val pelangganId = "itemIdpelanggan"
     val routeWithArgs = "$route/{$pelangganId}"
 }
 
@@ -150,21 +150,21 @@ fun ItemDetailsPelanggan(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             ItemDetailsRowPelanggan(
-                labelResID ="Nama   :",
+                labelResID ="Nama Pelanggan  :",
                 itemDetail = pelanggan.nama,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
             ItemDetailsRowPelanggan(
-                labelResID = "No Hp                       :",
+                labelResID = "NoHp                   :",
                 itemDetail = pelanggan.nohp,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
             )
             ItemDetailsRowPelanggan(
-                labelResID ="Alamat                      :",
+                labelResID ="Alamat                    :",
                 itemDetail = pelanggan.alamat,
                 modifier = Modifier.padding(
                     horizontal = 12.dp

@@ -20,6 +20,8 @@ import com.example.finalprojectpam.ui.halamanpelanggan.add.AddPelangganScreen
 import com.example.finalprojectpam.ui.halamanpelanggan.add.DestinasiAddPelanggan
 import com.example.finalprojectpam.ui.halamanpelanggan.detail.DestinasiDetailPelanggan
 import com.example.finalprojectpam.ui.halamanpelanggan.detail.DetailScreenPelanggan
+import com.example.finalprojectpam.ui.halamanpelanggan.edit.EditDestinationPelanggan
+import com.example.finalprojectpam.ui.halamanpelanggan.edit.EditScreenPelanggan
 import com.example.finalprojectpam.ui.halamanpelanggan.home.DestinasiHomePelanggan
 import com.example.finalprojectpam.ui.halamanpelanggan.home.HomeScreenPelanggan
 import com.example.finalprojectpam.ui.halamanutama.CoverScreen
@@ -72,7 +74,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                     navController.navigate(DestinasiAddPelanggan.route)
                 },
                 onDetailClickPelanggan = {itemIdPelanggan ->
-                    navController.navigate("${DestinasiDetailAlatMusik.route}/$itemIdPelanggan")
+                    navController.navigate("${DestinasiDetailPelanggan.route}/$itemIdPelanggan")
                     println("itemIdPelanggan: $itemIdPelanggan")
                 },
                 navigateBack = {navController.popBackStack()}
@@ -121,7 +123,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 DetailScreenPelanggan(
                     navigateBack ={navController.popBackStack()},
                     navigateToEditItem = {
-                        navController.navigate("${EditDestinationAlatmusik.route}/$pelangganId")
+                        navController.navigate("${EditDestinationPelanggan.route}/$pelangganId")
                         println("PelangganId: $pelangganId")
                     }
                 )
@@ -137,6 +139,19 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             val alatMusikId = backStackEntry.arguments?.getString(EditDestinationAlatmusik.alatMusikId)
             alatMusikId?.let {
                 EditScreenAlatMusik(
+                    navigateBack = { navController.popBackStack() },
+                    onNavigateUp = { navController.navigateUp() })
+            }
+        }
+        composable(
+            route = EditDestinationPelanggan.routeWithArgs,
+            arguments = listOf(navArgument(EditDestinationPelanggan.pelangganId){
+                type = NavType.StringType
+            })
+        ){backStackEntry ->
+            val pelangganId = backStackEntry.arguments?.getString(EditDestinationPelanggan.pelangganId)
+            pelangganId?.let {
+                EditScreenPelanggan(
                     navigateBack = { navController.popBackStack() },
                     onNavigateUp = { navController.navigateUp() })
             }

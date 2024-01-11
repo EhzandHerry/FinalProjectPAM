@@ -34,6 +34,5 @@ class DetailPelangganViewModel(
             )
     suspend fun deletePelanggan() {
         repositoriPelanggan.delete(pelangganId)
-
     }
 }

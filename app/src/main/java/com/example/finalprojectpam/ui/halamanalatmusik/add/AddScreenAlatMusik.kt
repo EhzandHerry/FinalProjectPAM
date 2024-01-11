@@ -30,7 +30,7 @@ import kotlinx.coroutines.launch
 
 object DestinasiAddAlatMusik : DestinasiNavigasi {
     override val route = "Add_AlatMusik"
-    override val titleRes = "Add AlatMusik"
+    override val titleRes = "Tambah Data Alat Musik"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

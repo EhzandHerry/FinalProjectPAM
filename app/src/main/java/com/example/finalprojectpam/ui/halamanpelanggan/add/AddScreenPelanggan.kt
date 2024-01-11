@@ -26,12 +26,11 @@ import com.example.finalprojectpam.ui.AddEventPelanggan
 import com.example.finalprojectpam.ui.AddUIStatePelanggan
 import com.example.finalprojectpam.ui.PelangganTopAppBar
 import com.example.finalprojectpam.ui.PenyediaViewModel
-import com.example.finalprojectpam.ui.halamanpelanggan.detail.DestinasiDetailPelanggan.pelangganId
 import kotlinx.coroutines.launch
 
 object DestinasiAddPelanggan : DestinasiNavigasi {
     override val route = "Add_Pelanggan"
-    override val titleRes = "Add Pelanggan"
+    override val titleRes = "Tambah Data Pelanggan"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

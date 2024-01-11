@@ -34,6 +34,5 @@ class DetailAlatMusikViewModel(
             )
     suspend fun deleteAlatMusik() {
         repositoriAlatmusik.delete(alatMusikId)
-
     }
 }
