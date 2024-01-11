@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.finalprojectpam.data.RepositoriPelanggan
 import com.example.finalprojectpam.ui.DetailUIStatePelanggan
-import com.example.finalprojectpam.ui.halamanpelanggan.detail.DestinasiDetailPelanggan
 import com.example.finalprojectpam.ui.toDetailPelanggan
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

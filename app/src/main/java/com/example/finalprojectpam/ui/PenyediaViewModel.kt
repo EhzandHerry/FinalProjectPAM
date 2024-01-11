@@ -11,6 +11,7 @@ import com.example.finalprojectpam.ui.halamanalatmusik.detail.DetailAlatMusikVie
 import com.example.finalprojectpam.ui.halamanalatmusik.edit.EditViewModelAlatMusik
 import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeViewModelAlatMusik
 import com.example.finalprojectpam.ui.halamanpelanggan.add.AddPelangganViewModel
+import com.example.finalprojectpam.ui.halamanpelanggan.detail.DetailPelangganViewModel
 import com.example.finalprojectpam.ui.halamanpelanggan.home.HomeViewModelPelanggan
 
 fun CreationExtras.aplikasiPemesanan(): PemesananAplication =
@@ -37,18 +38,18 @@ object PenyediaViewModel {
                 aplikasiPemesanan().container.repositoriAlatmusik)
         }
 
+
         initializer {
             HomeViewModelPelanggan(aplikasiPemesanan().container.repositoriPelanggan)
         }
         initializer {
             AddPelangganViewModel(aplikasiPemesanan().container.repositoriPelanggan)
         }
-//
-//        initializer {
-//            DetailAlatMusikViewModel(
-//                createSavedStateHandle(),
-//                aplikasiPemesanan().container.repositoriAlatmusik)
-//        }
+        initializer {
+            DetailPelangganViewModel(
+                createSavedStateHandle(),
+                aplikasiPemesanan().container.repositoriPelanggan)
+        }
 //        initializer {
 //            EditViewModelAlatMusik(
 //                createSavedStateHandle(),

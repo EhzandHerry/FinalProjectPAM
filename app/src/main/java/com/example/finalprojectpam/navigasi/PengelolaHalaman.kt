@@ -18,6 +18,8 @@ import com.example.finalprojectpam.ui.halamanalatmusik.home.DestinasiHomeAlatMus
 import com.example.finalprojectpam.ui.halamanalatmusik.home.HomeScreenAlatMusik
 import com.example.finalprojectpam.ui.halamanpelanggan.add.AddPelangganScreen
 import com.example.finalprojectpam.ui.halamanpelanggan.add.DestinasiAddPelanggan
+import com.example.finalprojectpam.ui.halamanpelanggan.detail.DestinasiDetailPelanggan
+import com.example.finalprojectpam.ui.halamanpelanggan.detail.DetailScreenPelanggan
 import com.example.finalprojectpam.ui.halamanpelanggan.home.DestinasiHomePelanggan
 import com.example.finalprojectpam.ui.halamanpelanggan.home.HomeScreenPelanggan
 import com.example.finalprojectpam.ui.halamanutama.CoverScreen
@@ -91,8 +93,6 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         }
 
 
-
-
         composable(
             route = DestinasiDetailAlatMusik.routeWithArgs,
             arguments = listOf(navArgument(DestinasiDetailAlatMusik.alatMusikId){
@@ -110,6 +110,24 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 )
             }
         }
+        composable(
+            route = DestinasiDetailPelanggan.routeWithArgs,
+            arguments = listOf(navArgument(DestinasiDetailPelanggan.pelangganId){
+                type =NavType.StringType
+            })
+        ){ backStackEntry ->
+            val pelangganId =backStackEntry.arguments?.getString(DestinasiDetailPelanggan.pelangganId)
+            pelangganId?.let {
+                DetailScreenPelanggan(
+                    navigateBack ={navController.popBackStack()},
+                    navigateToEditItem = {
+                        navController.navigate("${EditDestinationAlatmusik.route}/$pelangganId")
+                        println("PelangganId: $pelangganId")
+                    }
+                )
+            }
+        }
+
         composable(
             route = EditDestinationAlatmusik.routeWithArgs,
             arguments = listOf(navArgument(EditDestinationAlatmusik.alatMusikId){
