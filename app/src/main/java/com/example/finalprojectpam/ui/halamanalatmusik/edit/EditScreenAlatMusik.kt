@@ -1,5 +1,8 @@
 package com.example.finalprojectpam.ui.halamanalatmusik.edit
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -9,7 +12,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.finalprojectpam.R
 import com.example.finalprojectpam.navigasi.DestinasiNavigasi
 import com.example.finalprojectpam.ui.AlatMusikTopAppBar
 import com.example.finalprojectpam.ui.PenyediaViewModel
@@ -42,20 +48,35 @@ fun EditScreenAlatMusik(
         },
         modifier = modifier
     ) { innerPadding ->
-        EntryBodyAlatMusik(
-            addUIStateAlatMusik = viewModel.alatMusikUiState,
-            onAlatMusikValueChange = viewModel::updateUIStateAlatmusik,
-            onSaveClick = {
-                coroutineScope.launch {
-                    viewModel.updateAlatmusik()
-                    navigateBack()
-                }
-            },
+        Box(
             modifier = Modifier
+                .fillMaxSize()
                 .padding(innerPadding)
-                .verticalScroll(rememberScrollState())
-                .fillMaxWidth()
-        )
+
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.forgambar),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxSize()
+            )
+            EntryBodyAlatMusik(
+                addUIStateAlatMusik = viewModel.alatMusikUiState,
+                onAlatMusikValueChange = viewModel::updateUIStateAlatmusik,
+                onSaveClick = {
+                    coroutineScope.launch {
+                        viewModel.updateAlatmusik()
+                        navigateBack()
+                    }
+                },
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .verticalScroll(rememberScrollState())
+                    .fillMaxWidth()
+            )
+        }
+
     }
 }
 
