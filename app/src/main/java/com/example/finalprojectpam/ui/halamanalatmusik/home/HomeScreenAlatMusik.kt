@@ -94,8 +94,6 @@ fun HomeScreenAlatMusik(
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier
                     .padding(16.dp)
-                    //.align(Alignment.BottomCenter)
-
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
@@ -175,7 +173,7 @@ fun DataAlatMusik(
         val image = painterResource(id = R.drawable.musiclogo)
         Column(
             modifier = Modifier.padding(12.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth()
@@ -204,10 +202,6 @@ fun DataAlatMusik(
                     fontWeight = FontWeight.Bold
                 )
             }
-            Text(
-                text = "Rp."+alatMusik.harga,
-                style = MaterialTheme.typography.titleMedium
-            )
             Spacer(Modifier.weight(1f))
             Icon(
                 imageVector = Icons.Default.Delete,

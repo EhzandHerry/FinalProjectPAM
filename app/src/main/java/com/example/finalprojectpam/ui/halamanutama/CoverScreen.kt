@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -75,12 +76,13 @@ fun CoverScreen(
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         OutlinedCard(
+
             colors = CardDefaults.cardColors(
                 containerColor = MaterialTheme.colorScheme.surface,
             ),
-            border = BorderStroke(1.dp, Color.Black), modifier = Modifier
+            border = BorderStroke(1.dp, Color.Magenta), modifier = Modifier
                 .fillMaxWidth(0.9f)
-                .padding(vertical = 80.dp)
+                .padding(vertical = 100.dp)
                 .align(Alignment.CenterHorizontally)
         ) {
             Column(
@@ -115,30 +117,14 @@ fun CoverScreen(
 
             }
         }
-        Row (
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(dimensionResource(R.dimen.padding_medium))
-                .weight(1f, false),
-            horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
-            verticalAlignment = Alignment.Bottom
-        ){
-            Button(
-                modifier = Modifier.weight(1f),
-                onClick = {  },
-            ) {
-                Text(stringResource(R.string.next),
-                color =Color.Yellow)
-            }
-        }
     }
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
-            .padding(horizontal = 50.dp),
+            .padding(horizontal = 35.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Bottom
     ) {
         OutlinedTextField(value = emailText,
             onValueChange = { emailText = it },
@@ -183,7 +169,7 @@ fun CoverScreen(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(
-                Color.Magenta
+                Color.DarkGray
             )
         )
         {
