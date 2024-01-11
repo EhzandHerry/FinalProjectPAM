@@ -28,28 +28,25 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         startDestination = DestinasiHome.route,
         modifier = Modifier
     ){
-
         composable(DestinasiHome.route
         ) {
-            CoverScreen(
-                onNextButtonClicked = { navController.navigate(DestinasiMenu.route)
-                }
-            )
+            CoverScreen(navController)
         }
-
 
         composable(DestinasiMenu.route
         ) {
             HalamanUtamaScreen(
-                onAlatMusikClicked = { navController.navigate(DestinasiHomeAlatMusik.route)
-                },
-               // navigateBack = {navController.popBackStack()}
+                onAlatMusikClicked = {
+                    navController.navigate(DestinasiHomeAlatMusik.route)
+                }
             )
         }
+
         composable(DestinasiHomeAlatMusik.route
      ){
             HomeScreenAlatMusik(
-                navigateToItemEntryAlatMusik = { navController.navigate(DestinasiAddAlatMusik.route)
+                navigateToItemEntryAlatMusik = {
+                    navController.navigate(DestinasiAddAlatMusik.route)
                 },
                 onDetailClickAlatMusik = {itemId ->
                     navController.navigate("${DestinasiDetailAlatMusik.route}/$itemId")
